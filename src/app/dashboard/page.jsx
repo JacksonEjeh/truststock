@@ -69,9 +69,9 @@ export default function page() {
             </div>
             <div className='p-5'>
                 <div className='grid grid-cols-2 gap-5'>
-                    <div>
+                    <Link href={'/dashboard/invest'}>
                         <button className='bg-purple-800 text-white w-full py-2 border-2 border-purple-800 font-semibold text-sm rounded-full'>Invest now</button>
-                    </div>
+                    </Link>
                     <Link href={'/dashboard/add-funds'}>
                         <button className='border-purple-800 border-2 text-purple-800 font-semibold w-full py-2 text-sm rounded-full'>Add funds</button>
                     </Link>
