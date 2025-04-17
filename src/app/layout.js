@@ -18,11 +18,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="md:flex md:justify-center md:items-center md:h-screen">
+          <div className="hidden md:block shadow p-10 border shadow-purple-800 rounded ">
+            <p className="text-3xl text-purple-800 font-bold text-center">Tablet and Desktop view </p>
+            <p className="text-4xl text-purple-800 font-bold text-center">coming soon</p>
+          </div>
+          <div className=" md:hidden">
+          {children}
+          </div>
+        </main>
       </body>
     </html>
   );
