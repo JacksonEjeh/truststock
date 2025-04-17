@@ -49,7 +49,7 @@ export default function page() {
                         </div>
                     </div>
                 </div>
-                <form className='mb-6'>
+                <div className='mb-6'>
                     <div className='grid grid-cols-2 gap-5 mb-5'>
                         <select className="select select-bordered w-full font-bold">
                             <option value={'BTC'}>BTC</option>
@@ -61,8 +61,10 @@ export default function page() {
                             <input type="text" className="grow text-sm" defaultValue={50} />
                         </label>
                     </div>
-                    <button className=' rounded text-xs w-full bg-purple-800 py-3 border-2 border-purple-800 text-white font-semibold'>ADD FUNDS</button>
-                </form>
+                    <Link href={'/dashboard/add-funds/payment-info/1'}>
+                        <button className=' rounded text-xs w-full bg-purple-800 py-3 border-2 border-purple-800 text-white font-semibold'>ADD FUNDS</button>
+                    </Link>
+                </div>
                 <div className="p-4 bg-purple-500/20 rounded-lg flex gap-2 mb-5">
                     <div>
                         <RiErrorWarningFill className="text-purple-500 text-2xl" />

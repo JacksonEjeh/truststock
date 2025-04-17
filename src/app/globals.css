@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 
+@font-face {
+font-family: "Rubik";
+src: url("/fonts/iJWKBXyIfDnIV7nBrXw.woff2") format("woff2");
+}
+  
+body {
+    font-family: "Rubik", sans-serif;
+}
