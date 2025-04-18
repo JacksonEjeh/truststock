@@ -1,4 +1,5 @@
 'use client'
+import Footer from '@/app/components/dashboardComponents/Footer';
 import Nav from '@/app/components/dashboardComponents/Nav'
 import React, { useState } from 'react'
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
@@ -25,7 +26,7 @@ export default function page() {
                     <p className='text-gray-500 text-xs font-light'>Dashboard /</p>
                     <p className='font-semibold text-lg'>Manual Investment</p>
                 </div>
-                <div className='flex justify-between items-center mb-5 bg-white px-3 py-1'>
+                <div className='flex justify-between items-center rounded-xl mb-5 bg-white px-3 py-1'>
                     <div className=''>
                         <p className='text-gray-500 text-xs font-light'>Available to invest</p>
                         <p className='text-gray-900'>{ showAmount ? '$10,990.00' : '**********' }</p>
@@ -61,7 +62,7 @@ export default function page() {
                             <div className="collapse-title font-semibold">Promo plan</div>
                             <div className="collapse-content">
                                 <div className='bg-white rounded-b-lg'>
-                                    <div className=' grid grid-cols-2 items-center text-xs mb-1'>
+                                    <div className=' grid grid-cols-2 items-center text-xs mb-3'>
                                         <ul className=''>
                                             <li className='mb-2'>Type</li>
                                             <li className='mb-2'>Investment period</li>
@@ -124,7 +125,7 @@ export default function page() {
                                     <div className="collapse-title font-semibold">{plan?.plan}</div>
                                     <div className="collapse-content">
                                         <div className='bg-white rounded-b-lg'>
-                                            <div className=' grid grid-cols-2 items-center text-xs mb-1'>
+                                            <div className=' grid grid-cols-2 items-center text-xs mb-3'>
                                                 <ul className=''>
                                                     <li className='mb-2'>Type</li>
                                                     <li className='mb-2'>Investment period</li>
@@ -158,6 +159,7 @@ export default function page() {
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
   )
 }

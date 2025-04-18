@@ -19,7 +19,7 @@ export default function Nav({ dash }) {
   return (
     <div>
         <nav className={ dash ? 'p-4 bg-gray-100 shadow z-20 flex items-center justify-between fixed top-0 left-0 right-0' : 'p-4 bg-white z-20 flex items-center justify-between fixed top-0 left-0 right-0'}>
-            <Link href={'/'} className="text-black font-bold text-lg flex items-end">TRUSTSTOCK<span className="text-purple-800 "><GoDotFill /></span></Link>
+            <Link href={'/dashboard'} className="text-black font-bold text-lg flex items-end">TRUSTSTOCK<span className="text-purple-800 "><GoDotFill /></span></Link>
             <div className='flex items-center gap-5'>
                 <div className='flex items-center'>
                     <p className='text-sm'>EN</p>
@@ -51,30 +51,30 @@ export default function Nav({ dash }) {
                                 </div>
                                 <small className='px-3 mb-2 text-gray-400'>General</small>
                                 <div className='md:pl-4 pl-3 md:py-4 py-2'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                    <Link href={'/dashboard'} className='flex items-center md:gap-4 gap-3'>
                                         <MdSpaceDashboard className='md:text-lg' />
                                         <div>
                                             <p className='text-sm'>Dashboard overview</p>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                    <Link href={'/dashboard/invest'} className='flex items-center md:gap-4 gap-3'>
                                         <FaMoneyBill className='md:text-lg' />
                                         <p className='text-sm'>Manual investment</p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                    <Link href={'/dashboard/portfolio'} className='flex items-center md:gap-4 gap-3'>
                                         <BsFillFileBarGraphFill className='md:text-lg' />
                                         <p className='text-sm'>Portfolio</p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                    <Link href={'/dashboard/help'} className='flex items-center md:gap-4 gap-3'>
                                         <BiSupport className='text-lg' />
                                         <p className='text-sm'>Help</p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
