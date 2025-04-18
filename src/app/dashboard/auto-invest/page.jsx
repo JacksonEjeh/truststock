@@ -11,14 +11,12 @@ export default function page() {
             <div className='px-5'>
                 <div className='mb-10'>
                     <Link href={'/dashboard'} className='text-gray-500 text-xs font-light'>Dashboard /</Link>
-                    <p className='font-semibold text-lg'>Portfolio</p>
+                    <p className='font-semibold text-lg'>Auto-Invest</p>
                 </div>
             </div>
             <div className='w-[80%] mx-auto text-sm text-center h-screen'>
-                <div className='flex items-center justify-center'>
-                    <img src="/images/box.png" alt="No data" className='h-14' />
-                </div>
-                <div className='text-center font-light pb-14 text-sm'>No data to show</div>
+                <p className='font-light mb-2'>Oops! Sorry, you currently do not have access to auto-invest</p>
+                <Link href={'/dashboard/help'} className='text-blue-500 text-xs'>Learn more about auto-invest</Link>
             </div>
         </div>
         <Footer />

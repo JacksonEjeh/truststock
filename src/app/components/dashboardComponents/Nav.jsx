@@ -76,24 +76,18 @@ export default function Nav({ dash }) {
                                         <p className='text-sm'>Help</p>
                                     </Link>
                                 </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                <div className=' z-10 pl-3 mb-5 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    <Link href={'/dashboard/auto-invest'} className='flex items-center md:gap-4 gap-3'>
                                         <FaMoneyBill className='md:text-lg' />
                                         <p className='text-sm'>Auto investment</p>
-                                    </div>
-                                </div>
-                                <div className=' z-10 pl-3 mb-5 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
-                                        <IoGift className='md:text-lg' />
-                                        <p className='text-sm'>Rewards</p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <small className='px-3 mb-2 text-gray-400'>Account</small>
                                 <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                    <Link href={'/dashboard/profile'} className='flex items-center md:gap-4 gap-3'>
                                         <FaUserAlt className='md:text-lg' />
                                         <p className='text-sm'>My profile</p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
