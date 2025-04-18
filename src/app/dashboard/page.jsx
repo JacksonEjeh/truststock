@@ -7,6 +7,7 @@ import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import Link from 'next/link';
 import Footer from '../components/dashboardComponents/Footer';
+import FadeInSection from '../components/FadeInSection';
 
 export default function page() {
     const [showAmount, setShowAmount] = useState(false);
@@ -16,6 +17,7 @@ export default function page() {
   return (
     <div className='bg-gray-100'>
         <Nav dash={true} />
+        <FadeInSection>
         <div className='pt-20'>
             <div className='px-5'>
                 <div className='mb-5'>
@@ -92,30 +94,35 @@ export default function page() {
                         <p className='text-green-500 text-sm'>+$500.00</p>
                     </div>
                 </div>
-                <div className='border rounded-lg p-3 flex items-center justify-between mb-2'>
-                    <div>
-                        <small>2025.03.02 17:43:03</small>
-                        <p>Account deposit</p>
-                        <small className='text-red-500'>Rejected</small>
+                <FadeInSection>
+                    <div className='border rounded-lg p-3 flex items-center justify-between mb-2'>
+                        <div>
+                            <small>2025.03.02 17:43:03</small>
+                            <p>Account deposit</p>
+                            <small className='text-red-500'>Rejected</small>
+                        </div>
+                        <div>
+                            <p className='text-red-500 text-sm'>+$300.00</p>
+                        </div>
                     </div>
-                    <div>
-                        <p className='text-red-500 text-sm'>+$300.00</p>
+                </FadeInSection>
+                <FadeInSection>
+                    <div className='border rounded-lg p-3 flex items-center justify-between mb-2'>
+                        <div>
+                            <small>2025.03.02 17:43:03</small>
+                            <p>Account deposit</p>
+                            <small className='text-yellow-500'>Pending</small>
+                        </div>
+                        <div>
+                            <p className='text-yellow-500 text-sm'>+$430.00</p>
+                        </div>
                     </div>
-                </div>
-                <div className='border rounded-lg p-3 flex items-center justify-between mb-2'>
-                    <div>
-                        <small>2025.03.02 17:43:03</small>
-                        <p>Account deposit</p>
-                        <small className='text-yellow-500'>Pending</small>
-                    </div>
-                    <div>
-                        <p className='text-yellow-500 text-sm'>+$430.00</p>
-                    </div>
-                </div>
+                </FadeInSection>
             </div>
             {/* <Faq /> */}
             <Footer />
         </div>
+        </FadeInSection>
     </div>
   )
 }
