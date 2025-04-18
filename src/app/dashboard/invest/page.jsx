@@ -82,7 +82,7 @@ export default function page() {
                                             <label className=' pl-3 items-center flex justify-between rounded-full bg-gray-100'>
                                                 <span className="font-semibold text-sm">$ </span>
                                                 <input type="text" placeholder='1000.00' className='outline-none bg-gray-100 text-sm'/>
-                                                <button className='bg-purple-800 py-2 px-4 rounded-full text-white text-xs'>Invest</button>
+                                                <button className='bg-purple-800/30 border border-purple-800 font-semibold  py-2 px-4 rounded-full text-purple-800 text-xs'>Invest</button>
                                             </label>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@ export default function page() {
                                                     <label className=' pl-3 items-center flex justify-between rounded-full bg-gray-100'>
                                                         <span className="font-semibold text-sm">$ </span>
                                                         <input type="text" placeholder='1000.00' className='outline-none bg-gray-100 text-sm'/>
-                                                        <button className='bg-purple-800 py-2 px-4 rounded-full text-white text-xs'>Invest</button>
+                                                        <button className='bg-purple-800/30 border border-purple-800 font-semibold  py-2 px-4 rounded-full text-purple-800 text-xs'>Invest</button>
                                                     </label>
                                                 </div>
                                             </div>

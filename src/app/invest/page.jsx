@@ -55,12 +55,6 @@ export default function page() {
                         <FadeInSection>
                             <Investment_opp />
                         </FadeInSection>
-                        <FadeInSection>
-                            <Investment_opp />
-                        </FadeInSection>
-                        <FadeInSection>
-                            <Investment_opp />
-                        </FadeInSection>
                     </div>
                 </FadeInSection>
                 <FadeInSection>
