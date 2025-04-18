@@ -4,16 +4,19 @@ import { FaTelegram } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
 import { AiFillInstagram } from "react-icons/ai";
 import { GoDotFill } from "react-icons/go";
+import FadeInSection from './FadeInSection';
 
 export default function Footer() {
   return (
     <>
+    <FadeInSection>
       <div className="mb-10">
         <h1 className="font-bold text-lg flex items-end mb-2">TRUSTSTOCK<span className="text-purple-800 "><GoDotFill className="text-sm" /></span></h1>
         <p className="text-sm mb-2">A licensed European investment platform.</p>
         <p className="text-sm">Investing in financial instruments involves risk. There is no guarantee to get back the invested amount. You could lose some or all of your investments.</p>
         <p className="text-sm text-gray-500 mt-5">About</p>
       </div>
+      <FadeInSection>
       <footer className="px-5">
         <div className="grid grid-cols-2 pb-5 border-b-2 mb-5">
           <div>
@@ -54,6 +57,8 @@ export default function Footer() {
           <p className="text-[10px] text-black/50">&copy; 2025 Truststock. All rights reserved.</p>
         </div>
       </footer>
+      </FadeInSection>
+      </FadeInSection>
     </>
   )
 }

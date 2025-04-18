@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Nav from '../components/dashboardComponents/Nav';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { GoDotFill } from 'react-icons/go';
+import FadeInSection from '../components/FadeInSection';
 
 
 export default function page() {
@@ -17,6 +18,7 @@ export default function page() {
               <RiArrowDropDownLine className='text-xl'/>
           </div>
       </nav>
+      <FadeInSection>
       <div>
         <div>
           <h1 className='text-2xl mb-5 font-bold text-center'>Welcome back</h1>
@@ -52,13 +54,16 @@ export default function page() {
             <p className='text-xs text-purple-800'>Reset password</p>
             <Link href={'/sign-up'} className='text-xs text-purple-800'>Create account</Link>
           </div>
-          <Link href={'/dashboard'} >
-          <div className='px-4'>
-            <button className='text-white bg-purple-800 w-full py-3 rounded-full'>Sign in</button>
-          </div>
-          </Link>
+          <FadeInSection>
+            <Link href={'/dashboard'} >
+            <div className='px-4'>
+              <button className='text-white bg-purple-800 w-full py-3 rounded-full'>Sign in</button>
+            </div>
+            </Link>
+          </FadeInSection>
         </div>
       </div>
+      </FadeInSection>
       <footer className='fixed bottom-0 left-0 right-0 p-4'>
         <p className='text-center text-xs text-gray-500'>&copy;2023 Truststock. All rights reserved.</p>
       </footer>

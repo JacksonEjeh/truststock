@@ -1,3 +1,4 @@
+import FadeInSection from "../components/FadeInSection";
 import Footer from "../components/footer";
 import CreateAccountBtn from "../components/globalComponent/CreateAccount-Btn";
 import Nav from "../components/Nav";
@@ -21,51 +22,79 @@ export default function page() {
                     <p className="font-light mb-4">Truststock believes that democratizing investments is an opportunity for individuals of all income levels to achieve better returns on their savings and build long-term wealth.</p>
                     <p className="font-light">Your investments generate returns based on repayments borrowers make on their loans. By reinvesting your returns, earnings can grow intensely.</p>
                 </div>
-                <div className="p-4 bg-purple-500/20 rounded-lg flex gap-2">
+                <FadeInSection>
+                    <div className="p-4 bg-purple-500/20 rounded-lg flex gap-2">
+                        <div>
+                            <RiErrorWarningFill className="text-purple-500 text-3xl" />
+                        </div>
+                        <p className="font-light">As an investor, it's essential to understand the risks involved, even though we are a regulated platform with a license issued by the World Bank. Please be aware that your capital is subject to potential risks, carefully consider your objectives and potential risks before making any investment decisions.</p>
+                    </div>
+                </FadeInSection>
+                <FadeInSection>
+                    <div className="my-16">
+                        <img src="/images/white_youtube_male_reading-min.89bcb6e.jpg" alt="" className="rounded-xl" />
+                    </div>
+                </FadeInSection>
+                <FadeInSection>
                     <div>
-                        <RiErrorWarningFill className="text-purple-500 text-3xl" />
+                        <h1 className="text-2xl mb-5 leading-tight font-bold">Getting started with Truststock is easy and safe</h1>
+                        <FadeInSection>
+                            <CreateAccountBtn how_it_works={true} />
+                        </FadeInSection>
                     </div>
-                    <p className="font-light">As an investor, it's essential to understand the risks involved, even though we are a regulated platform with a license issued by the World Bank. Please be aware that your capital is subject to potential risks, carefully consider your objectives and potential risks before making any investment decisions.</p>
-                </div>
-                <div className="my-16">
-                    <img src="/images/white_youtube_male_reading-min.89bcb6e.jpg" alt="" className="rounded-xl" />
-                </div>
-                <div>
-                    <h1 className="text-2xl mb-5 leading-tight font-bold">Getting started with Truststock is easy and safe</h1>
-                    <CreateAccountBtn how_it_works={true} />
-                </div>
-                <div className="p-8 bg-pink-500/20 rounded-lg mb-5">
-                    <h1 className="font-bold text-lg">Create an account</h1>
-                    <p className="font-light">Registration on our platform is free and your information is regulated by authorities, ensuring investor security.</p>
-                </div>
-                <div className="p-8 bg-green-500/20 rounded-lg mb-5">
-                    <h1 className="font-bold text-lg">Add funds</h1>
-                    <p className="font-light">Truststock accepts payments in Euro, and transfers can be made solely from your personal or company's bank account.</p>
-                </div>
-                <div className="p-8 bg-purple-500/20 rounded-lg mb-10">
-                    <h1 className="font-bold text-lg">Invest</h1>
-                    <p className="font-light">Select from our automated investing options or hand-pick specific investments. You can get started with as little as €50.</p>
-                </div>
-                <div className="mb-16">
-                    <p className="text-purple-800 mb-5">Available investment methods</p>
-                    <div className="mb-5">
-                        <h1 className="font-bold text-lg">Manual</h1>
-                        <p className="font-light">Manual investment allows for a more hands-on approach to your investments. You will hand-pick the loans you want to invest in, and may research and evaluate them on a case-by-case basis.</p>
+                </FadeInSection>
+                <FadeInSection>
+                    <div className="p-8 bg-pink-500/20 rounded-lg mb-5">
+                        <h1 className="font-bold text-lg">Create an account</h1>
+                        <p className="font-light">Registration on our platform is free and your information is regulated by authorities, ensuring investor security.</p>
                     </div>
-                    <div className="mb-5">
-                        <h1 className="font-bold text-lg">Smart-Reinvest</h1>
-                        <p className="font-light">The automatic reinvestment tool is designed to keep your money continuously working for you by automatically reinvesting principal returns in the case of early loan repayments.</p>
+                </FadeInSection>
+                <FadeInSection>
+                    <div className="p-8 bg-green-500/20 rounded-lg mb-5">
+                        <h1 className="font-bold text-lg">Add funds</h1>
+                        <p className="font-light">Truststock accepts payments in Euro, and transfers can be made solely from your personal or company's bank account.</p>
                     </div>
-                    <div className="mb-5">
-                        <h1 className="font-bold text-lg">Auto-invest</h1>
-                        <p className="font-light">Auto-Invest is a convenient feature that enables investors to automate their investment process. By setting specific investment criteria, the platform will automatically invest their funds into Notes that match those criteria.</p>
+                </FadeInSection>
+                <FadeInSection>
+                    <div className="p-8 bg-purple-500/20 rounded-lg mb-10">
+                        <h1 className="font-bold text-lg">Invest</h1>
+                        <p className="font-light">Select from our automated investing options or hand-pick specific investments. You can get started with as little as €50.</p>
                     </div>
-                </div>
-                <div>
-                    <h1 className="text-2xl mb-5 leading-tight font-bold text-center">Let's begin your investment journey with TrustStock today!</h1>
-                    <CreateAccountBtn how_it_works={true} />
-                </div>
-                <Footer />
+                </FadeInSection>
+                <FadeInSection>
+                    <div className="mb-16">
+                        <p className="text-purple-800 mb-5">Available investment methods</p>
+                        <FadeInSection>
+                            <div className="mb-5">
+                                <h1 className="font-bold text-lg">Manual</h1>
+                                <p className="font-light">Manual investment allows for a more hands-on approach to your investments. You will hand-pick the loans you want to invest in, and may research and evaluate them on a case-by-case basis.</p>
+                            </div>
+                        </FadeInSection>
+                        <FadeInSection>
+                            <div className="mb-5">
+                                <h1 className="font-bold text-lg">Smart-Reinvest</h1>
+                                <p className="font-light">The automatic reinvestment tool is designed to keep your money continuously working for you by automatically reinvesting principal returns in the case of early loan repayments.</p>
+                            </div>
+                        </FadeInSection>
+                        <FadeInSection>
+                            <div className="mb-5">
+                                <h1 className="font-bold text-lg">Auto-invest</h1>
+                                <p className="font-light">Auto-Invest is a convenient feature that enables investors to automate their investment process. By setting specific investment criteria, the platform will automatically invest their funds into Notes that match those criteria.</p>
+                            </div>
+                        </FadeInSection>
+                    </div>
+                </FadeInSection>
+                <FadeInSection>
+                    <div>
+                        <h1 className="text-2xl mb-5 leading-tight font-bold text-center">Let's begin your investment journey with TrustStock today!</h1>
+                        <FadeInSection>
+                            <CreateAccountBtn how_it_works={true} />
+                        </FadeInSection>
+                    </div>
+                </FadeInSection>
+                <FadeInSection>
+                    <Footer />
+                </FadeInSection>
             </div>
         </div>
     </div>
