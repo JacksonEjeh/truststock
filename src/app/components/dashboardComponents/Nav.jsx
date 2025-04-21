@@ -45,7 +45,7 @@ export default function Nav({ dash }) {
                                         <div className='size-10 bg-gray-500 rounded-full'></div>
                                     </div>
                                     <div>
-                                        <p className='md:text-sm text-sm font-semibold'>Gabriel Jackson</p>
+                                        <p className='md:text-sm text-sm font-semibold flex items-center gap-1'><span>Gabriel Jackson</span><span className='size-4'><img src="/images/verify.png" className='size-full' alt="" /></span></p>
                                         <p className='text-xs text-gray-400 font-light'>$10,000.00</p>
                                     </div>
                                 </div>
