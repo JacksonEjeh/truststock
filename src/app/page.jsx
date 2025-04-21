@@ -34,7 +34,6 @@ export default function Home() {
             </div>
             <CreateAccountBtn />
           </div>
-          <FadeInSection>
           <div className="mb-10">
             <h1 className="font-bold text-[22px] leading-tight mb-5">Maximize the potential of your money, minimize your efforts</h1>
             <FadeInSection>
@@ -67,7 +66,6 @@ export default function Home() {
             </Link>
             </FadeInSection>
           </div>
-          </FadeInSection>
           <FadeInSection>
           <div className="bg-purple-800 px-4 py-6 text-white mb-10">
             <h1 className="font-bold text-xl w-32 mb-10">Licensed,&nbsp;Profitable and&nbsp;Credible</h1>

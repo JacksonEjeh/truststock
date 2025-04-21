@@ -9,12 +9,29 @@ import Link from 'next/link';
 import Footer from '../components/dashboardComponents/Footer';
 import FadeInSection from '../components/FadeInSection';
 import Transactions from '../components/dashboardComponents/Transactions';
+import Balance from '../components/dashboardComponents/Balance';
+import Returns from '../components/dashboardComponents/Returns';
+import Portfolio from '../components/dashboardComponents/Portfolio';
 
 export default function page() {
     const [showAmount, setShowAmount] = useState(false);
     const showAmountBtn = () => {
         setShowAmount(!showAmount);
-    }
+    };
+    const [homeBtn, setHomeBtn] = useState('balance');
+    const handleHomeBtn = (key) => {
+        switch (key) {
+            case 'returns':
+                setHomeBtn('returns');
+                break;
+            case 'portfolio':
+                setHomeBtn('portfolio');
+                break;
+            default:
+                setHomeBtn('balance');
+                break;
+        }
+    };
   return (
     <div className='bg-gray-100'>
         <Nav dash={true} />
@@ -27,49 +44,31 @@ export default function page() {
                 </div>
                 <div className='grid grid-cols-3'>
                     <div>
-                        <button className='border-b-2 border-purple-800 text-sm px-2 py-1 w-full font-light'>Balance</button>
+                        <button onClick={() => handleHomeBtn('balance')} className={homeBtn === 'balance' ? 'border-b-2 border-purple-800 text-sm px-2 py-1 w-full font-light' : 'border-b-2 text-sm px-2 py-1 w-full font-light'}>Balance</button>
                     </div>
                     <div>
-                        <button className='border-b-2 focus:border-purple-800 text-gray-400 font-light focus:text-black text-sm px-2 py-1 w-full'>Returns</button>
+                        <button onClick={() => handleHomeBtn('returns')} className={homeBtn === 'returns' ? 'border-b-2 border-purple-800 text-sm px-2 py-1 w-full font-light' : 'border-b-2 text-sm px-2 py-1 w-full font-light'}>Returns</button>
                     </div>
                     <div>
-                        <button className='border-b-2 focus:border-purple-800 text-gray-400 font-light focus:text-black text-sm px-2 py-1 w-full'>Portfolio</button>
+                        <button onClick={() => handleHomeBtn('portfolio')} className={homeBtn === 'portfolio' ? 'border-b-2 border-purple-800 text-sm px-2 py-1 w-full font-light' : 'border-b-2 text-sm px-2 py-1 w-full font-light'}>Portfolio</button>
                     </div>
                 </div>
             </div>
-            <div className='bg-white p-5 border-b'>
-                <div className='mb-3 flex items-center justify-between'>
+            {
+                homeBtn === 'balance' ? (
                     <div>
-                        <p className='text-gray-500 text-sm font-light'>Available to invest</p>
-                        <p className='text-gray-900 text-2xl font-bold'>{ showAmount ? '$10,000.00' : '**********' }</p>
+                        <Balance showAmountBtn={showAmountBtn} showAmount={showAmount} />
                     </div>
+                ) : homeBtn === 'returns' ? (
                     <div>
-                        {
-                            showAmount ? (
-                                <button onClick={showAmountBtn} className='bg-gray-200 rounded-full p-1'>
-                                    <IoMdEyeOff className='text-2xl' />
-                                </button>
-                            ):(
-                                <button onClick={showAmountBtn} className='bg-gray-200 rounded-full p-1'>
-                                    <IoMdEye className='text-2xl' />
-                                </button>
-                            )
-                        }
+                        <Returns showAmountBtn={showAmountBtn} showAmount={showAmount} />
                     </div>
-                </div>
-                <div className='flex items-center justify-between mb-2'>
-                    <p className='text-gray-500 text-sm font-light'>Invested funds</p>
-                    <p className='text-gray-900 text-sm font-semibold'>{ showAmount ? '$7,000.00' : '*****' }</p>
-                </div>
-                <div className='flex items-center justify-between border-b pb-3'>
-                    <p className='text-gray-500 text-sm font-light'>Pending payments</p>
-                    <p className='text-gray-900 text-sm font-semibold'>{ showAmount ? '$500.00' : '*****' }</p>
-                </div>
-                <div className='flex items-center justify-between  pt-3'>
-                    <p className='text-gray-900 text-sm font-light'>Total value</p>
-                    <p className='text-gray-900 text-sm font-semibold'>{ showAmount ? '$17,500.00' : '*****' }</p>
-                </div>
-            </div>
+                ) : (
+                    <div>
+                        <Portfolio />
+                    </div>
+                )
+            }
             <div className='p-5'>
                 <div className='grid grid-cols-2 gap-5'>
                     <Link href={'/dashboard/invest'}>
