@@ -28,7 +28,7 @@ export default function page() {
                     </div>
                     <div>
                         <input type="text" className='rounded w-full py-3 px-4 outline-none focus:shadow text-sm font-light mb-5' placeholder='Amount to withdraw' />
-                        <select className=" select rounded w-full py-3 px-4 outline-none focus:shadow text-sm font-light mb-5">
+                        <select className=" select rounded w-full px-4 outline-none focus:shadow text-sm font-light mb-5">
                             <option value={'BTC'}>BTC</option>
                             <option value="LTC">LTC</option>
                             <option value="USDT">USDT TRC20</option>
