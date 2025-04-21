@@ -50,75 +50,75 @@ export default function Nav({ dash }) {
                                     </div>
                                 </div>
                                 <small className='px-3 mb-2 text-gray-400'>General</small>
-                                <div className='md:pl-4 pl-3 md:py-4 py-2'>
-                                    <Link href={'/dashboard'} className='flex items-center md:gap-4 gap-3'>
+                                <Link href={'/dashboard'} className='md:pl-4 pl-3 md:py-4 py-2'>
+                                    <div className='flex items-center md:gap-4 gap-3'>
                                         <MdSpaceDashboard className='md:text-lg' />
                                         <div>
                                             <p className='text-sm'>Dashboard overview</p>
                                         </div>
-                                    </Link>
-                                </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <Link href={'/dashboard/invest'} className='flex items-center md:gap-4 gap-3'>
+                                    </div>
+                                </Link>
+                                <Link href={'/dashboard/invest'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    <div className='flex items-center md:gap-4 gap-3'>
                                         <FaMoneyBill className='md:text-lg' />
                                         <p className='text-sm'>Manual investment</p>
-                                    </Link>
-                                </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <Link href={'/dashboard/portfolio'} className='flex items-center md:gap-4 gap-3'>
+                                    </div>
+                                </Link>
+                                <Link href={'/dashboard/portfolio'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    <div className='flex items-center md:gap-4 gap-3'>
                                         <BsFillFileBarGraphFill className='md:text-lg' />
                                         <p className='text-sm'>Portfolio</p>
-                                    </Link>
-                                </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <Link href={'/dashboard/help'} className='flex items-center md:gap-4 gap-3'>
+                                    </div>
+                                </Link>
+                                <Link href={'/dashboard/help'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    <div className='flex items-center md:gap-4 gap-3'>
                                         <BiSupport className='text-lg' />
                                         <p className='text-sm'>Help</p>
-                                    </Link>
-                                </div>
-                                <div className=' z-10 pl-3 mb-5 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <Link href={'/dashboard/auto-invest'} className='flex items-center md:gap-4 gap-3'>
+                                    </div>
+                                </Link>
+                                <Link href={'/dashboard/auto-invest'} className=' z-10 pl-3 mb-5 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    <div className='flex items-center md:gap-4 gap-3'>
                                         <FaMoneyBill className='md:text-lg' />
                                         <p className='text-sm'>Auto investment</p>
-                                    </Link>
-                                </div>
+                                    </div>
+                                </Link>
                                 <small className='px-3 mb-2 text-gray-400'>Account</small>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
-                                    <Link href={'/dashboard/profile'} className='flex items-center md:gap-4 gap-3'>
+                                <Link href={'/dashboard/profile'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    <div className='flex items-center md:gap-4 gap-3'>
                                         <FaUserAlt className='md:text-lg' />
                                         <p className='text-sm'>My profile</p>
-                                    </Link>
-                                </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                    </div>
+                                </Link>
+                                <Link href={'/dashboard/transaction'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <FaFile className='md:text-lg' />
-                                        <p className='text-sm'>Statement</p>
+                                        <p className='text-sm'>Transactions</p>
                                     </div>
-                                </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                </Link>
+                                <Link href={'/dashboard/add-funds'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <BsDatabaseFillAdd className='md:text-lg' />
                                         <p className='text-sm'>Add funds</p>
                                     </div>
-                                </div>
-                                <div className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                </Link>
+                                <Link href={'/dashboard/withdraw-funds'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <PiHandWithdrawFill className='md:text-lg' />
                                         <p className='text-sm'>Withdraw funds</p>
                                     </div>
-                                </div>
-                                <div className=' z-10 mb-5 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                </Link>
+                                <Link href={'/dashboard/refer-a-friend'} className=' z-10 mb-5 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <FaUserFriends className='md:text-lg' />
                                         <p className='text-sm'>Refer a friend</p>
                                     </div>
-                                </div>
-                                <div className=' z-10 mb-5 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                </Link>
+                                <Link href={'/'} className=' z-10 mb-5 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <FaSignOutAlt className='md:text-lg' />
                                         <p className='text-sm'>Sign out</p>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

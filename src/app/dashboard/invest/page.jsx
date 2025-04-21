@@ -1,17 +1,12 @@
-'use client'
+
+import AvailableFunds from '@/app/components/dashboardComponents/AvailableFunds';
 import Footer from '@/app/components/dashboardComponents/Footer';
 import Nav from '@/app/components/dashboardComponents/Nav'
 import FadeInSection from '@/app/components/FadeInSection';
-import React, { useState } from 'react'
-import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 import { RiErrorWarningFill } from 'react-icons/ri'
 
 export default function page() {
 
-    const [showAmount, setShowAmount] = useState(false);
-        const showAmountBtn = () => {
-            setShowAmount(!showAmount);
-        }
     const investment_plans = [
         { id: 1, plan: "Basic plan", type: 'Personal', period: '7-14 days', Interest: '15.00', Amount_range: '$100.00-$500.00'},
         { id: 2, plan: "Advance plan", type: 'Personal', period: '14-30 days', Interest: '20.00', Amount_range: '$550.00-$1,000.00' },
@@ -28,30 +23,14 @@ export default function page() {
                         <p className='text-gray-500 text-xs font-light'>Dashboard /</p>
                         <p className='font-semibold text-lg'>Manual Investment</p>
                     </div>
-                    <div className='flex justify-between items-center rounded-xl mb-5 bg-white px-3 py-1'>
-                        <div className=''>
-                            <p className='text-gray-500 text-xs font-light'>Available to invest</p>
-                            <p className='text-gray-900'>{ showAmount ? '$10,990.00' : '**********' }</p>
-                        </div>
-                        <div>
-                            {
-                                showAmount ? (
-                                    <button onClick={showAmountBtn} className='bg-gray-100 rounded-full p-1'>
-                                        <IoMdEyeOff className='text-xl' />
-                                    </button>
-                                ):(
-                                    <button onClick={showAmountBtn} className='bg-gray-100 rounded-full p-1'>
-                                        <IoMdEye className='text-xl' />
-                                    </button>
-                                )
-                            }
-                        </div>
-                    </div>
                     <div className="p-4 bg-purple-500/20 rounded-lg flex gap-2 mb-5">
                         <div>
                             <RiErrorWarningFill className="text-purple-500 text-2xl" />
                         </div>
                         <p className="font-light text-xs">Explore our wide range of stock investment plans tailored to fit your budget and financial goals. Make sure to choose a plan that aligns with your personal investment strategy.</p>
+                    </div>
+                    <div>
+                        <AvailableFunds />
                     </div>
                     <div>
                         <div className='mb-3 relative'>

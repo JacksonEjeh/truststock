@@ -1,4 +1,5 @@
 'use client'
+import BankAccounts from '@/app/components/dashboardComponents/BankAccounts'
 import Footer from '@/app/components/dashboardComponents/Footer'
 import MyProfile from '@/app/components/dashboardComponents/MyProfile'
 import Nav from '@/app/components/dashboardComponents/Nav'
@@ -57,7 +58,7 @@ export default function page() {
                                 <PersonalInfo />
                             </div>
                         ) : profile === 'banks' ? (
-                            <div>
+                            <div className='pb-[300px]'>
                                 <BankAccounts />
                             </div>
                         ) : (
