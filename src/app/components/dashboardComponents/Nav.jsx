@@ -50,14 +50,14 @@ export default function Nav({ dash }) {
                                     </div>
                                 </div>
                                 <small className='px-3 mb-2 text-gray-400'>General</small>
-                                <Link href={'/dashboard'} className='md:pl-4 pl-3 md:py-4 py-2'>
-                                    <div className='flex items-center md:gap-4 gap-3'>
+                                <div className='md:pl-4 pl-3 md:py-4 py-2'>
+                                    <Link href={'/dashboard'} className='flex items-center md:gap-4 gap-3'>
                                         <MdSpaceDashboard className='md:text-lg' />
                                         <div>
                                             <p className='text-sm'>Dashboard overview</p>
                                         </div>
-                                    </div>
-                                </Link>
+                                    </Link>
+                                </div>
                                 <Link href={'/dashboard/invest'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <FaMoneyBill className='md:text-lg' />
