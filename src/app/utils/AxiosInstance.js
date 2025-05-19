@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL: 'https://truststock-api.onrender.com/api/v1',
+    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     withCredentials: true,
 });
 
