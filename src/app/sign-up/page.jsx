@@ -123,7 +123,7 @@ export default function page() {
                                 type="text" 
                                 name='first_name'
                                 value={signUp.first_name}
-                                className="grow text-sm"
+                                className="grow"
                                 onChange={handleInput}
                             />
                         </label>
@@ -131,7 +131,7 @@ export default function page() {
                             Last name:
                             <input 
                                 type="text"    
-                                className="grow text-sm" 
+                                className="grow" 
                                 name='last_name'
                                 value={signUp.last_name}
                                 onChange={handleInput}    
@@ -141,7 +141,7 @@ export default function page() {
                             Your email:
                             <input 
                             type="text" 
-                            className="grow text-sm" 
+                            className="grow" 
                             name='email'
                             value={signUp.email}
                             onChange={handleInput}       
@@ -152,7 +152,7 @@ export default function page() {
                             Password:
                             <input 
                                 type={showPassword ? "text" : "password"}
-                                className="grow text-sm" 
+                                className="grow" 
                                 name='password'
                                 value={signUp.password}
                                 onChange={handleInput}       
@@ -186,7 +186,7 @@ export default function page() {
                             Confirm password:
                             <input 
                                 type={showPassword ? "text" : "password"}
-                                className="grow text-sm" 
+                                className="grow" 
                                 name='confirmPassword'
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}       

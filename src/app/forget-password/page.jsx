@@ -68,7 +68,7 @@ export default function page() {
             <input 
                 type="email" 
                 name='email'
-                className="grow text-sm"
+                className="grow"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />

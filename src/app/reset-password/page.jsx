@@ -129,14 +129,14 @@ export default function page() {
                                 name='otp'
                                 onChange={handleInput}
                                 value={otp_info.otp}
-                                className="grow text-sm"
+                                className="grow"
                             />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 text-sm mb-5 w-full">
                             New password:
                             <input 
                                 type={showPassword ? "text" : "password"}
-                                className="grow text-sm" 
+                                className="grow" 
                                 name='newPassword'
                                 value={otp_info.newPassword}
                                 onChange={handleInput}       

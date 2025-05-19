@@ -27,13 +27,13 @@ export default function page() {
                         <AvailableFunds />
                     </div>
                     <div>
-                        <input type="text" className='rounded w-full py-3 px-4 outline-none focus:shadow text-sm font-light mb-5' placeholder='Amount to withdraw' />
+                        <input type="text" className='rounded w-full py-3 px-4 outline-none focus:shadow font-light mb-5' placeholder='Amount to withdraw' />
                         <select className=" select rounded w-full px-4 outline-none focus:shadow text-sm font-light mb-5">
                             <option value={'BTC'}>BTC</option>
                             <option value="LTC">LTC</option>
                             <option value="USDT">USDT TRC20</option>
                         </select>
-                        <input type="text" className='rounded w-full py-3 px-4 outline-none focus:shadow text-sm font-light mb-10' placeholder='Crypto wallet' />
+                        <input type="text" className='rounded w-full py-3 px-4 outline-none focus:shadow font-light mb-10' placeholder='Crypto wallet' />
                         <button className='w-full py-3 bg-purple-800 text-white text-sm rounded'>Withdraw funds</button>
                     </div>
                 </div>

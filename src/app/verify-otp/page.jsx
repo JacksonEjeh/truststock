@@ -103,7 +103,7 @@ export default function page() {
                                 name='otp'
                                 onChange={handleInput}
                                 value={otp_info.otp}
-                                className="grow text-sm"
+                                className="grow"
                             />
                         </label>
                         <div className='flex justify-between items-center'>

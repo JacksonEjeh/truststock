@@ -60,7 +60,7 @@ export default function page() {
                             </select>
                             <label className="input input-bordered flex items-center gap-2 text-sm w-full font-bold">
                                 $
-                                <input type="text" className="grow text-sm" defaultValue={50} />
+                                <input type="text" className="grow" defaultValue={50} />
                             </label>
                         </div>
                         <Link href={'/dashboard/add-funds/payment-info/1'}>
