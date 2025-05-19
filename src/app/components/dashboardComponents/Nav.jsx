@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link';
 import React from 'react'
 import { MdSpaceDashboard } from "react-icons/md";
@@ -7,15 +8,32 @@ import { FaMoneyBill } from "react-icons/fa";
 import { BsFillFileBarGraphFill } from "react-icons/bs";
 import { FaFile } from "react-icons/fa6";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { IoGift } from "react-icons/io5";
 import { FaUserAlt } from "react-icons/fa";
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { BsDatabaseFillAdd } from "react-icons/bs";
 import { PiHandWithdrawFill } from "react-icons/pi";
 import { FaUserFriends } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '@/app/redux/slices/UserSlice';
+import { useRouter } from 'next/navigation';
 
 export default function Nav({ dash }) {
+    const dispatch = useDispatch();
+    const router = useRouter();
+    const loggedUser = useSelector((state)=> state.user);
+
+    const handleLogOut = (e) => {
+        e.preventDefault();
+        dispatch(logOut()).then((action) => {
+            console.log(action)
+            if (action.type === "user/logOut/fulfilled") {
+                console.log("Logout successful");
+                router.push("/");
+            }  
+        })
+    };
+    
   return (
     <div>
         <nav className={ dash ? 'p-4 bg-gray-100 shadow z-20 flex items-center justify-between fixed top-0 left-0 right-0' : 'p-4 bg-white z-20 flex items-center justify-between fixed top-0 left-0 right-0'}>
@@ -45,7 +63,7 @@ export default function Nav({ dash }) {
                                         <div className='size-10 bg-gray-500 rounded-full'></div>
                                     </div>
                                     <div>
-                                        <p className='md:text-sm text-sm font-semibold flex items-center gap-1'><span>Gabriel Jackson</span><span className='size-4'><img src="/images/verify.png" className='size-full' alt="" /></span></p>
+                                        <p className='md:text-sm text-sm font-semibold flex items-center gap-1'><span>{`${loggedUser?.user?.user?.first_name} ${loggedUser?.user?.user?.last_name}`}</span><span className='size-4'>{loggedUser?.user?.user?.isProfileComplete ? <img src="/images/verify.png" className='size-full' alt="" /> : null}</span></p>
                                         <p className='text-xs text-gray-400 font-light'>$10,000.00</p>
                                     </div>
                                 </div>
@@ -113,12 +131,12 @@ export default function Nav({ dash }) {
                                         <p className='text-sm'>Refer a friend</p>
                                     </div>
                                 </Link>
-                                <Link href={'/'} className=' z-10 mb-5 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                <div onClick={handleLogOut} className=' z-10 mb-5 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                     <div className='flex items-center md:gap-4 gap-3'>
                                         <FaSignOutAlt className='md:text-lg' />
                                         <p className='text-sm'>Sign out</p>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,16 +1,72 @@
 'use client'
 import Link from 'next/link';
 import React, { useState } from 'react';
-import Nav from '../components/dashboardComponents/Nav';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { GoDotFill } from 'react-icons/go';
 import FadeInSection from '../components/FadeInSection';
+import ToastAlert from '../components/ToastAlert';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../redux/slices/UserSlice';
+import { Eye, EyeOff } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 
 export default function page() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { loading } = useSelector((state) => state.user)
+  const [showPassword, setShowPassword] = useState(false);
+  const [ alert, setAlert ] = useState(({ message: "", type: "info"}));
+
+  const [ sign_up, setSignUp ] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInput = (e) =>{
+    const { name, value } = e.target;
+    setSignUp((prev)=> ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if( !sign_up.email || !sign_up.password ){
+      setAlert({ message: "All fields are required", type: "error" });
+      return;
+    }
+    dispatch(loginUser(sign_up)).then((action)=>{
+      if (action.type === "user/loginUser/fulfilled") {
+        setAlert({ message: "Login successful", type: "success" });
+        router.push('/dashboard');
+      }
+      if (action.payload === "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number"){
+        setAlert({ message: "Password must include uppercase, lowercase, number, and special character.", type: "error" });
+        return;
+      }
+      if (action.payload === "User not found"){
+        setAlert({ message: "User not found", type: "error" });
+        return;
+      }
+      if (action.payload === "Invalid credentials"){
+        setAlert({ message: "Email or password is incorrect", type: "error" });
+        return;
+      }
+      if (action.payload === "Invalid email format"){
+        setAlert({ message: "Email or password is incorrect", type: "error" });
+        return;
+      }
+    })
+  }
 
   return (
     <div className='h-screen flex items-center justify-center'>
+       <div>
+          <ToastAlert
+              message={alert.message}
+              type={alert.type}
+              onClose={() => setAlert({ message: "", type: "info" })}
+          />
+      </div>
       <nav className='p-4 bg-white z-20 flex items-center justify-between fixed top-0 left-0 right-0'>
         <Link href={'/'} className="text-black font-bold text-lg flex items-end">TRUSTSTOCK<span className="text-purple-800 "><GoDotFill /></span></Link>
           <div className='flex items-center'>
@@ -20,7 +76,7 @@ export default function page() {
       </nav>
       <FadeInSection>
       <div>
-        <div>
+        <form onSubmit={handleSubmit}>
           <h1 className='text-2xl mb-5 font-bold text-center'>Welcome back</h1>
           <div className='w-screen px-4'>
             <label className="input input-bordered flex items-center gap-2 mb-5 w-full">
@@ -34,7 +90,14 @@ export default function page() {
                 <path
                   d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
               </svg>
-              <input type="text" className="grow" placeholder="Email" />
+              <input 
+                type="text" 
+                className="grow" 
+                placeholder="Email" 
+                name='email'
+                value={sign_up.email}
+                onChange={handleInput}
+              />
             </label>
             <label className="input input-bordered flex items-center gap-2 w-full">
               <svg
@@ -47,21 +110,33 @@ export default function page() {
                   d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
                   clipRule="evenodd" />
               </svg>
-              <input type="password" className="grow" placeholder='Password' />
+              <input 
+                type={showPassword ? "text" : "password"}
+                className="grow" 
+                placeholder='Password' 
+                name='password'
+                value={sign_up.password}
+                onChange={handleInput}  
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-2.5 text-gray-600"
+                >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
             </label>
           </div>
           <div className='px-4 flex justify-between items-center my-3'>
-            <p className='text-xs text-purple-800'>Reset password</p>
+            <Link href={'/forget-password'} className='text-xs text-purple-800'>Forget password</Link>
             <Link href={'/sign-up'} className='text-xs text-purple-800'>Create account</Link>
           </div>
           <FadeInSection>
-            <Link href={'/dashboard'} >
             <div className='px-4'>
-              <button className='text-white bg-purple-800 w-full py-3 rounded-full'>Sign in</button>
+              <button className='text-white bg-purple-800 w-full py-3 rounded-full'>{ loading ? "Loading..." : "Sign in"}</button>
             </div>
-            </Link>
           </FadeInSection>
-        </div>
+        </form>
       </div>
       </FadeInSection>
       <footer className='fixed bottom-0 left-0 right-0 p-4'>
