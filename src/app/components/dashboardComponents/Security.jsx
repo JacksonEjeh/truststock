@@ -23,6 +23,7 @@ export default function Security() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
         if ( !change_password.old_password || !change_password.new_password || !confirm_password ) {
             setAlert({ message: "Please fill all fields", type: "error" });
             return;
