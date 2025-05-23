@@ -14,6 +14,7 @@ import Returns from '../components/dashboardComponents/Returns';
 import Portfolio from '../components/dashboardComponents/Portfolio';
 
 export default function page() {
+
     const [showAmount, setShowAmount] = useState(false);
     const showAmountBtn = () => {
         setShowAmount(!showAmount);

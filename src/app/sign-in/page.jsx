@@ -28,35 +28,53 @@ export default function page() {
     setSignUp((prev)=> ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if( !sign_up.email || !sign_up.password ){
+
+    if (!sign_up.email || !sign_up.password) {
       setAlert({ message: "All fields are required", type: "error" });
       return;
     }
-    dispatch(loginUser(sign_up)).then((action)=>{
-      if (action.type === "user/loginUser/fulfilled") {
+  
+    try {
+      const action = await dispatch(loginUser(sign_up));
+  
+      if (loginUser.fulfilled.match(action)) {
+        const accessToken = action.payload.accessToken;
+        document.cookie = `accesstoken=${accessToken}; path=/; secure; SameSite=Strict`;
         setAlert({ message: "Login successful", type: "success" });
-        router.push('/dashboard');
+        router.push("/dashboard");
+      } else {
+        const message = action.payload;
+        switch (message) {
+          case "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number":
+            setAlert({
+              message:
+                "Password must include uppercase, lowercase, number, and special character.",
+              type: "error",
+            });
+            break;
+          case "Network Error":
+            setAlert({ message: "Network Error", type: "error" });
+            break;
+          case "User not found":
+            setAlert({ message: "User not found", type: "error" });
+            break;
+          case "Invalid credentials":
+            setAlert({ message: "Email or password is incorrect", type: "error" });
+            break;
+          case "Invalid email format":
+            setAlert({ message: "Email or password is incorrect", type: "error" });
+            break;
+          default:
+            setAlert({ message: message || "Login failed", type: "error" });
+            break;
+        }
       }
-      if (action.payload === "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number"){
-        setAlert({ message: "Password must include uppercase, lowercase, number, and special character.", type: "error" });
-        return;
-      }
-      if (action.payload === "User not found"){
-        setAlert({ message: "User not found", type: "error" });
-        return;
-      }
-      if (action.payload === "Invalid credentials"){
-        setAlert({ message: "Email or password is incorrect", type: "error" });
-        return;
-      }
-      if (action.payload === "Invalid email format"){
-        setAlert({ message: "Email or password is incorrect", type: "error" });
-        return;
-      }
-    })
-  }
+    } catch (err) {
+      setAlert({ message: "Unexpected error occurred. Try again", type: "error" });
+    }
+  };  
 
   return (
     <div className='h-screen flex items-center justify-center'>

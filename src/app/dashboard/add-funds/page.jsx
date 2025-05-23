@@ -58,7 +58,7 @@ export default function page() {
                                 <option value="LTC">LTC</option>
                                 <option value="USDT">USDT TRC20</option>
                             </select>
-                            <label className="input input-bordered flex items-center gap-2 text-sm w-full font-bold">
+                            <label className="input input-bordered flex items-center gap-2 text-sm w-full font-semi-bold">
                                 $
                                 <input type="text" className="grow" defaultValue={50} />
                             </label>

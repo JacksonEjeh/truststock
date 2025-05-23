@@ -16,20 +16,17 @@ import { FaUserFriends } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '@/app/redux/slices/UserSlice';
-import { useRouter } from 'next/navigation';
 
 export default function Nav({ dash }) {
     const dispatch = useDispatch();
-    const router = useRouter();
     const loggedUser = useSelector((state)=> state.user);
 
     const handleLogOut = (e) => {
         e.preventDefault();
         dispatch(logOut()).then((action) => {
-            console.log(action)
             if (action.type === "user/logOut/fulfilled") {
-                console.log("Logout successful");
-                router.push("/");
+                window.location.replace('/sign-in')
+                document.cookie = 'accesstoken=; Max-Age=0; path=/';
             }  
         })
     };
@@ -63,7 +60,7 @@ export default function Nav({ dash }) {
                                         <div className='size-10 bg-gray-500 rounded-full'></div>
                                     </div>
                                     <div>
-                                        <p className='md:text-sm text-sm font-semibold flex items-center gap-1'><span>{`${loggedUser?.user?.user?.first_name} ${loggedUser?.user?.user?.last_name}`}</span><span className='size-4'>{loggedUser?.user?.user?.isProfileComplete ? <img src="/images/verify.png" className='size-full' alt="" /> : null}</span></p>
+                                        <p className='md:text-sm text-sm font-semibold flex items-center gap-1'><span>{`${loggedUser?.user?.first_name} ${loggedUser?.user?.last_name}`}</span><span className='size-4'>{loggedUser?.user?.isProfileComplete ? <img src="/images/verify.png" className='size-full' alt="" /> : null}</span></p>
                                         <p className='text-xs text-gray-400 font-light'>$10,000.00</p>
                                     </div>
                                 </div>

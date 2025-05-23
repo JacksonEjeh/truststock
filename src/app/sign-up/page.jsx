@@ -63,9 +63,8 @@ export default function page() {
         if (!agreed) {
             setAlert({ message: "You must agree to the terms and conditions.", type: "info" });
             return;
-          }
+        }
         dispatch(signUpUser(signUp)).then((action)=>{
-            console.log("SignUp action returned:", action);
             if (action.type === "user/signUpUser/fulfilled"){
                 // Assuming payload contains user data like email
                 const email = action.payload?.data?.email;
@@ -73,6 +72,10 @@ export default function page() {
             }
             if (action.payload === "User already exists"){
                 setAlert({ message: "User already exists", type: "error" });
+                return;
+            }
+            if (action.payload === "Network Error"){
+                setAlert({ message: "Network Error", type: "error" });
                 return;
             }
             if (action.payload === "Password must include uppercase, lowercase, number, and special character."){
