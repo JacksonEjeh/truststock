@@ -28,7 +28,7 @@ export default function Nav({ dash }) {
         dispatch(logOut()).then((action) => {
             if (action.type === "user/logOut/fulfilled") {
                router.replace('/sign-in')
-                document.cookie = 'accesstoken=; Max-Age=0; path=/';
+                document.cookie = 'accessToken=; Max-Age=0; path=/';
             }  
         })
     };

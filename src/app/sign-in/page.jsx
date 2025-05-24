@@ -40,6 +40,8 @@ export default function page() {
       const action = await dispatch(loginUser(sign_up));
   
       if (loginUser.fulfilled.match(action)) {
+        const accessToken = action.payload.accessToken;
+        document.cookie = `accessToken=${accessToken}; path=/; secure; SameSite=None`;
         setAlert({ message: "Login successful", type: "success" });
         router.push("/dashboard");
       } else {
