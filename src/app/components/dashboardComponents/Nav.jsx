@@ -16,8 +16,10 @@ import { FaUserFriends } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '@/app/redux/slices/UserSlice';
+import { useRouter } from 'next/navigation';
 
 export default function Nav({ dash }) {
+    const router = useRouter();
     const dispatch = useDispatch();
     const loggedUser = useSelector((state)=> state.user);
 
@@ -25,7 +27,7 @@ export default function Nav({ dash }) {
         e.preventDefault();
         dispatch(logOut()).then((action) => {
             if (action.type === "user/logOut/fulfilled") {
-                window.location.replace('/sign-in')
+               router.replace('/sign-in')
                 document.cookie = 'accesstoken=; Max-Age=0; path=/';
             }  
         })
