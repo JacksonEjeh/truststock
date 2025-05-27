@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react'
 import { MdSpaceDashboard } from "react-icons/md";
 import { BiSupport } from 'react-icons/bi';
 import { GoDotFill } from "react-icons/go";
@@ -17,24 +17,35 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '@/app/redux/slices/UserSlice';
 import { useRouter } from 'next/navigation';
+import ToastAlert from '../ToastAlert';
 
 export default function Nav({ dash }) {
     const router = useRouter();
     const dispatch = useDispatch();
     const loggedUser = useSelector((state)=> state.user);
+    
+    const [ alert, setAlert ] = useState(({ message: "", type: "info"}));
 
-    const handleLogOut = (e) => {
-        e.preventDefault();
+    const handleLogOut = () => {
         dispatch(logOut()).then((action) => {
             if (action.type === "user/logOut/fulfilled") {
                router.replace('/sign-in')
                 document.cookie = 'accessToken=; Max-Age=0; path=/';
-            }  
+            } else {
+                setAlert({ message: action.payload, type: 'error'})
+            }
         })
     };
     
   return (
     <div>
+        <div>
+            <ToastAlert
+              message={alert.message}
+              type={alert.type}
+              onClose={() => setAlert({ message: "", type: "info" })}
+            />
+        </div>
         <nav className={ dash ? 'p-4 bg-gray-100 shadow z-20 flex items-center justify-between fixed top-0 left-0 right-0' : 'p-4 bg-white z-20 flex items-center justify-between fixed top-0 left-0 right-0'}>
             <Link href={'/dashboard'} className="text-black font-bold text-lg flex items-end">TRUSTSTOCK<span className="text-purple-800 "><GoDotFill /></span></Link>
             <div className='flex items-center gap-5'>
@@ -135,6 +146,10 @@ export default function Nav({ dash }) {
                                         <FaSignOutAlt className='md:text-lg' />
                                         <p className='text-sm'>Sign out</p>
                                     </div>
+                                    {
+                                        loggedUser.loading === true ? <div className="animate-spin rounded-full h-5 w-5 border-4 border-purple-800 border-t-transparent"></div>
+                                        : null
+                                    }
                                 </div>
                             </div>
                         </div>
