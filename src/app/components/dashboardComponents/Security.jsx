@@ -41,7 +41,6 @@ export default function Security() {
                 setConfirmPassword('');
             } else {
                 const message = action.payload;
-                console.log(message)
                 setAlert({ message: message, type: "error" });
             }
         } catch (error) {
