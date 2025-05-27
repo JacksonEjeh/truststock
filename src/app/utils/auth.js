@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 export async function protectRoute() {
   const cookieStore = await cookies();
   const token = cookieStore.get('accessToken')?.value;
-  console.log(token)
+  // console.log(token)
   if (!token) {
     redirect('/sign-in');
   }

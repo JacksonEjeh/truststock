@@ -151,7 +151,7 @@ export default function page() {
           </div>
           <FadeInSection>
             <div className='px-4'>
-              <button className='text-white bg-purple-800 w-full py-3 rounded-full'>{ loading ? "Loading..." : "Sign in"}</button>
+              <button className='text-white bg-purple-800 w-full py-3 rounded-full flex items-center justify-center'>{ loading ? <div className="animate-spin rounded-full h-6 w-6 border-4 border-white border-t-transparent"></div> : "Sign in"}</button>
             </div>
           </FadeInSection>
         </form>
