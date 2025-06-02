@@ -72,7 +72,7 @@ export default function page() {
         }
       }
     } catch (err) {
-      setAlert({ message: "Unexpected error occurred. Try again", type: "error" });
+      setAlert({ message: err.message ||"Unexpected error occurred. Try again", type: "error" });
     }
   };  
 

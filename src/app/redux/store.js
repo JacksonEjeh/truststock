@@ -4,6 +4,7 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
 import storage from "redux-persist/lib/storage";
 import userReducer from './slices/UserSlice';
+import walletReducer from './slices/walletSlice';
 
 //logger middleware
 const logger = createLogger({
@@ -20,7 +21,8 @@ const persistConfig = {
 
 //Reducers
 const rootReducer = combineReducers({
-    user: userReducer
+    user: userReducer,
+    wallet: walletReducer
 });
 
 //persisted reducer

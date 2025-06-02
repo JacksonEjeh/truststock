@@ -1,10 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from '../components/dashboardComponents/Nav'
 import { TfiReload } from "react-icons/tfi";
-import Faq from '../components/Faq';
-import { IoMdEye } from "react-icons/io";
-import { IoMdEyeOff } from "react-icons/io";
 import Link from 'next/link';
 import Footer from '../components/dashboardComponents/Footer';
 import FadeInSection from '../components/FadeInSection';
@@ -12,9 +9,11 @@ import Transactions from '../components/dashboardComponents/Transactions';
 import Balance from '../components/dashboardComponents/Balance';
 import Returns from '../components/dashboardComponents/Returns';
 import Portfolio from '../components/dashboardComponents/Portfolio';
+import { useDispatch } from 'react-redux';
+import { getTransactionHistory, getWallet } from '../redux/slices/walletSlice';
 
 export default function page() {
-
+    const dispatch = useDispatch();
     const [showAmount, setShowAmount] = useState(false);
     const showAmountBtn = () => {
         setShowAmount(!showAmount);
@@ -33,15 +32,22 @@ export default function page() {
                 break;
         }
     };
+
+    useEffect(()=> {
+        dispatch(getWallet())
+    }, [])
   return (
     <div className='bg-gray-100'>
         <Nav dash={true} />
         <FadeInSection>
         <div className='pt-20'>
             <div className='px-5'>
-                <div className='mb-5'>
-                    <p className='text-gray-500 text-xs font-light'>Dashboard /</p>
-                    <p className='font-semibold text-lg'>Overview</p>
+                <div className='flex items-center justify-between mb-5'>
+                    <div className=''>
+                        <p className='text-gray-500 text-xs font-light'>Dashboard /</p>
+                        <p className='font-semibold text-lg'>Overview</p>
+                    </div>
+                    <button onClick={()=> dispatch(getWallet())} className='text-xs border rounded-full py-1 px-2'>Update balance</button> 
                 </div>
                 <div className='grid grid-cols-3'>
                     <div>
@@ -81,9 +87,9 @@ export default function page() {
                 </div>
             </div>
             <div className='p-5 bg-white'>
-                <div className='flex items-center justify-between mb-3'>
-                    <p className='text-sm font-semibold'>Last Transactions</p>
-                    <TfiReload className='text-gray-400 text-sm hover:text-gray-600' />
+                <div className='flex justify-between items-center mb-3'>
+                    <p className='text-sm font-semibold'>Activities</p>
+                    <TfiReload className='text-gray-500' onClick={()=> dispatch(getTransactionHistory())}/>
                 </div>
                <Transactions />
             </div>

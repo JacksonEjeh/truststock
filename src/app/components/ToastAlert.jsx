@@ -20,7 +20,7 @@ const ToastAlert = ({
   type = "info",
   onClose,
   autoClose = true,
-  duration = 3000,
+  duration = 5000,
 }) => {
   useEffect(() => {
     if (autoClose && message) {

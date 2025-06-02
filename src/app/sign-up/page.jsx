@@ -104,6 +104,7 @@ export default function page() {
         dispatch(signUpUser(signUp)).then((action)=>{
             if (action.type === "user/signUpUser/fulfilled"){
                 // Assuming payload contains user data like email
+                setAlert({ message: 'Success! Verify email', type: 'success'})
                 const email = action.payload?.data?.email;
                 router.push(`/verify-otp?email=${email}`);
             }

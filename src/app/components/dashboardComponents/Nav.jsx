@@ -23,20 +23,23 @@ export default function Nav({ dash }) {
     const router = useRouter();
     const dispatch = useDispatch();
     const loggedUser = useSelector((state)=> state.user);
+    const wallet = useSelector((state)=> state.wallet);
+
+    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
+    const available = wallet?.wallet?.availableBalance ?? 0;
     
     const [ alert, setAlert ] = useState(({ message: "", type: "info"}));
 
     const handleLogOut = () => {
         dispatch(logOut()).then((action) => {
-            if (action.type === "user/logOut/fulfilled") {
-               router.replace('/sign-in')
-                document.cookie = 'accessToken=; Max-Age=0; path=/';
+            if (logOut.fulfilled.match(action)) {
+                document.cookie = 'accessToken=; Max-Age=0; path=/;';
+                router.replace('/sign-in');
             } else {
-                setAlert({ message: action.payload, type: 'error'})
+                setAlert({ message: action.payload || 'Logout failed', type: 'error' });
             }
-        })
-    };
-    
+        });
+    };      
   return (
     <div>
         <div>
@@ -74,7 +77,7 @@ export default function Nav({ dash }) {
                                     </div>
                                     <div>
                                         <p className='md:text-sm text-sm font-semibold flex items-center gap-1'><span>{`${loggedUser?.user?.first_name} ${loggedUser?.user?.last_name}`}</span><span className='size-4'>{loggedUser?.user?.isProfileComplete ? <img src="/images/verify.png" className='size-full' alt="" /> : null}</span></p>
-                                        <p className='text-xs text-gray-400 font-light'>$10,000.00</p>
+                                        <p className='text-xs text-gray-400 font-light'>{formatCurrency(available)}</p>
                                     </div>
                                 </div>
                                 <small className='px-3 mb-2 text-gray-400'>General</small>
