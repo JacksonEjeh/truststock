@@ -10,7 +10,7 @@ import { RiErrorWarningFill } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function page() {
-    const { loading } = useSelector((state) => state.wallet)
+    const { loading } = useSelector((state) => state.wallet);
     const dispatch = useDispatch();
     const router = useRouter();
     const [alert, setAlert] = useState({ message: "", type: "info" });
