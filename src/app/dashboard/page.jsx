@@ -14,10 +14,16 @@ import { getTransactionHistory, getWallet } from '../redux/slices/walletSlice';
 
 export default function page() {
     const dispatch = useDispatch();
-    const [showAmount, setShowAmount] = useState(false);
+    
+    const [showAmount, setShowAmount] = useState(() => {
+        const storedValue = localStorage.getItem("showAmount");
+        return storedValue === "true"; // convert string back to boolean
+    });
+    
     const showAmountBtn = () => {
-        setShowAmount(!showAmount);
+        setShowAmount(prev => !prev);
     };
+
     const [homeBtn, setHomeBtn] = useState('balance');
     const handleHomeBtn = (key) => {
         switch (key) {
@@ -33,9 +39,13 @@ export default function page() {
         }
     };
 
-    useEffect(()=> {
-        dispatch(getWallet())
-    }, [])
+    useEffect(() => {
+        localStorage.setItem("showAmount", showAmount);
+    }, [showAmount]);
+
+    useEffect(() => {
+        dispatch(getWallet());
+    }, []);
   return (
     <div className='bg-gray-100'>
         <Nav dash={true} />

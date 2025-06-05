@@ -22,6 +22,9 @@ const postWithHandling = async (url, data, rejectWithValue) => {
 export const initiateDeposit = createAsyncThunk('wallet/initiateDeposit', (data, { rejectWithValue })=>
     postWithHandling('wallet/deposit', data, rejectWithValue )
 );
+export const initiateWithdrawal = createAsyncThunk('wallet/initiateWithdrawal', (data, { rejectWithValue })=>
+    postWithHandling('wallet/withdraw', data, rejectWithValue )
+);
 
 export const getWallet = createAsyncThunk(
     'wallet/getWallet',
@@ -73,6 +76,19 @@ const walletSlice = createSlice({
                 state.error = "";
             })
             .addCase(initiateDeposit.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload
+            })
+            .addCase(initiateWithdrawal.pending, (state) => {
+                state.loading = true;
+                state.error = "";
+            })
+            .addCase(initiateWithdrawal.fulfilled, (state, action) => {
+                state.loading = false;
+                state.error = "";
+                state.transactions = action.payload.transaction
+            })
+            .addCase(initiateWithdrawal.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload
             })
