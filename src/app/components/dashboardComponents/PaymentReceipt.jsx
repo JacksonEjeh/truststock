@@ -1,8 +1,9 @@
+'use client'
 import { IoWalletOutline } from "react-icons/io5";
 import { BiTransfer } from "react-icons/bi";
 import { IoLogoUsd } from "react-icons/io5";
 import { MdNumbers } from "react-icons/md";
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const PaymentReceipt = ({
     amount,
@@ -16,9 +17,18 @@ const PaymentReceipt = ({
     onClose
 }) => {
     if(!amount || !date || !method || !reference || !status || !type || !user) return null;
-
+    useEffect(()=>{
+        if(amount && type && status && method && reference && user) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+        document.body.style.overflow = "";
+        };
+    },[amount, type, status, method, reference, user]);
   return (
-    <div className='h-[100dvh] fixed bg-white z-50 top-0 left-0 right-0 bottom-0 animate-fade-in'>
+    <div className='fixed bg-white z-50 top-0 left-0 right-0 bottom-0 animate-fade-in'>
         <div className="h-[30vh] mb-5 bg-green-300 flex items-center justify-center"
             style={{
                 backgroundColor: status === 'PENDING'
@@ -31,7 +41,19 @@ const PaymentReceipt = ({
             }}
         >
             <div className="text-center text-black">
-                <p className="text-lg">{status}!</p>
+                <p className=""
+                    style={{
+                        color: status === 'PENDING'
+                        ? '#854d0e'
+                        : status === 'ACCEPTED'
+                        ? '#166534'
+                        : status === 'REJECTED'
+                        ? '#991b1b'
+                        : '#854d0e',
+                    }}
+                >
+                    {status}!
+                </p>
                 <p className="text-3xl font-semibold">USD {amount}</p>
             </div>
         </div>

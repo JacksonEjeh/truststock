@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdSpaceDashboard } from "react-icons/md";
 import { BiSupport } from 'react-icons/bi';
 import { GoDotFill } from "react-icons/go";
@@ -33,13 +33,18 @@ export default function Nav({ dash }) {
     const handleLogOut = () => {
         dispatch(logOut()).then((action) => {
             if (logOut.fulfilled.match(action)) {
+                localStorage.removeItem("showAmount");
                 document.cookie = 'accessToken=; Max-Age=0; path=/;';
                 router.replace('/sign-in');
             } else {
                 setAlert({ message: action.payload || 'Logout failed', type: 'error' });
             }
         });
-    };      
+    };  
+    
+    // useEffect(()=>{
+    //     const getUser
+    // },[])
   return (
     <div>
         <div>
