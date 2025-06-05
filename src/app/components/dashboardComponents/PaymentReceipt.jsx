@@ -18,15 +18,15 @@ const PaymentReceipt = ({
 }) => {
     if(!amount || !date || !method || !reference || !status || !type || !user) return null;
     useEffect(()=>{
-        if(amount && type && status && method && reference && user) {
+        if(amount) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "";
         }
         return () => {
-        document.body.style.overflow = "";
+            document.body.style.overflow = "";
         };
-    },[amount, type, status, method, reference, user]);
+    },[amount]);
   return (
     <div className='fixed bg-white z-50 top-0 left-0 right-0 bottom-0 animate-fade-in'>
         <div className="h-[30vh] mb-5 bg-green-300 flex items-center justify-center"

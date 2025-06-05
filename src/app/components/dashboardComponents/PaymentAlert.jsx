@@ -11,7 +11,7 @@ import Link from "next/link";
 
     if (!amount || !type || !status) return null;
     useEffect(()=>{
-        if(amount && type && status) {
+        if(amount) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = ""; // reset scroll
@@ -20,7 +20,7 @@ import Link from "next/link";
         return () => {
         document.body.style.overflow = "";
         };
-    },[amount, type, status]);
+    },[amount]);
   return (
     <div className="fixed z-50 top-0 left-0 right-0 bottom-0 animate-fade-in">
         <div className='relative'>
