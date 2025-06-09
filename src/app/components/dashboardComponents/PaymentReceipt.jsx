@@ -17,16 +17,20 @@ const PaymentReceipt = ({
     onClose
 }) => {
     if(!amount || !date || !method || !reference || !status || !type || !user) return null;
-    useEffect(()=>{
-        if(amount) {
+    useEffect(() => {
+        const originalStyle = document.body.style.overflow;
+
+        if (amount) {
             document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "";
+            document.body.style.overflow = originalStyle; // Restore original scroll
         }
+
         return () => {
-            document.body.style.overflow = "";
+            document.body.style.overflow = originalStyle; // Always restore on unmount
         };
-    },[amount]);
+    }, [amount]);
+
   return (
     <div className='fixed bg-white z-50 top-0 left-0 right-0 bottom-0 animate-fade-in'>
         <div className="h-[30vh] mb-5 bg-green-300 flex items-center justify-center"

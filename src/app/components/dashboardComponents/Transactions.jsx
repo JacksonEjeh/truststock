@@ -8,6 +8,7 @@ import PaymentReceipt from './PaymentReceipt';
 export default function Transactions() {
   const { transaction_loader, transactions } = useSelector((state) => state.wallet);
   const dispatch = useDispatch();
+  const [showComponent, setShowComponent] = useState(true);
   const [paymentReceipt, setPaymentReceipt] = useState({
     amount: null,
     date: null,
@@ -24,6 +25,7 @@ export default function Transactions() {
   }, []);
 
   const openModal = (txn) => {
+    setShowComponent(true)
     setPaymentReceipt({
       amount: txn?.amount.toFixed(2),
       date: new Date(txn?.createdAt).toLocaleString(),
@@ -42,26 +44,20 @@ export default function Transactions() {
   return (
     <div>
       <div>
-        <PaymentReceipt 
-          amount={paymentReceipt.amount}
-          date={paymentReceipt.date}
-          method={paymentReceipt.method}
-          reference={paymentReceipt.reference}
-          status={paymentReceipt.status}
-          type={paymentReceipt.type}
-          user={paymentReceipt.user}
-          walletAddress={paymentReceipt.walletAddress}
-          onClose={()=>setPaymentReceipt({
-            amount: null,
-            date: null,
-            method: null,
-            reference: null,
-            status: null,
-            type: null,
-            user: null,
-            walletAddress: null,
-          })}
-        />
+        {
+          showComponent && 
+          <PaymentReceipt 
+            amount={paymentReceipt.amount}
+            date={paymentReceipt.date}
+            method={paymentReceipt.method}
+            reference={paymentReceipt.reference}
+            status={paymentReceipt.status}
+            type={paymentReceipt.type}
+            user={paymentReceipt.user}
+            walletAddress={paymentReceipt.walletAddress}
+            onClose={()=>setShowComponent(prev => !prev)}
+          />
+        }
       </div>
       <FadeInSection>
         {transactions?.transactions?.length > 0 ? (

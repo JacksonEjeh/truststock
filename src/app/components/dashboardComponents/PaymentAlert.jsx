@@ -6,21 +6,25 @@ import Link from "next/link";
  const PaymentAlert = ({
     amount,
     type,
-    status
+    status,
+    onclose
  })=> {
 
     if (!amount || !type || !status) return null;
-    useEffect(()=>{
-        if(amount) {
+    useEffect(() => {
+        const originalStyle = document.body.style.overflow;
+
+        if (amount) {
             document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = ""; // reset scroll
+            document.body.style.overflow = originalStyle; // Restore original scroll
         }
-        // Cleanup when component unmounts
+
         return () => {
-        document.body.style.overflow = "";
+            document.body.style.overflow = originalStyle; // Always restore on unmount
         };
-    },[amount]);
+    }, [amount]);
+
   return (
     <div className="fixed z-50 top-0 left-0 right-0 bottom-0 animate-fade-in">
         <div className='relative'>
@@ -30,7 +34,7 @@ import Link from "next/link";
                     <p className="text-2xl font-semibold">USD <span>{amount}</span></p>
                     <small className="text-black/50">{status}</small>
                     <p className="text-sm mt-10">Request received and is being processed</p>
-                    <Link href={'/dashboard'}>
+                    <Link href={'/dashboard'} onClick={onclose}>
                         <button className="mt-10 w-full py-3 bg-purple-800 rounded text-white text-sm">Done</button>
                     </Link>
                 </div>

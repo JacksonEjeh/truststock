@@ -15,6 +15,7 @@ export default function page() {
     const dispatch = useDispatch();
     const [alert, setAlert] = useState({ message: "", type: "info" });
     const [paymentAlert, setPaymentAlert] = useState({ amount: null, type: null, status: null });
+      const [showComponent, setShowComponent] = useState(true);
     const [withdrawal_info, setWithdrawalInfo] = useState({
         amount: '',
         method: '',
@@ -65,6 +66,7 @@ export default function page() {
                     type:action?.payload?.transaction?.type.toUpperCase(),
                     status: action?.payload?.transaction?.status.toUpperCase(),
                 });
+                setShowComponent(true);
             } else {
                 const message = action.payload;
                 console.log(message)
@@ -85,11 +87,15 @@ export default function page() {
   return (
     <div className='bg-gray-100'>
         <div>
-            <PaymentAlert
-                amount={paymentAlert.amount}
-                type={paymentAlert.type}
-                status={paymentAlert.status}
-            />
+            {
+                showComponent && 
+                <PaymentAlert
+                    amount={paymentAlert.amount}
+                    type={paymentAlert.type}
+                    status={paymentAlert.status}
+                    onclose={()=> setShowComponent(prev => !prev)}
+                />
+            }
             <ToastAlert
                 message={alert.message}
                 type={alert.type}
