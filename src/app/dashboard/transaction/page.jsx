@@ -7,7 +7,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100 '>
         <Nav dash={true} />
         <FadeInSection>
             <div className='pt-20'>
