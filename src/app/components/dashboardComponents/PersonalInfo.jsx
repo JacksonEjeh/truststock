@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 export default function PersonalInfo() {
+    const loggedUser = useSelector((state)=> state.user);
   return (
     <div>
       <div className='border-b border-gray-200 pb-3 mb-5 font-semibold'>
@@ -21,11 +23,11 @@ export default function PersonalInfo() {
                   <li className=''>DOB</li>
               </ul>
               <ul className='font-light'>
-                  <li className='mb-5'>Gabriel Jackson</li>
-                  <li className='mb-5'>+1 (404) 785-9933</li>
-                  <li className='mb-5'>gabbyjax7@gmail.com</li>
-                  <li className='mb-5'>Male</li>
-                  <li className=''>21-10-1988</li>
+                  <li className='mb-5'>{loggedUser?.user?.last_name}{" "}{loggedUser?.user?.first_name}</li>
+                  <li className='mb-5'>-</li>
+                  <li className='mb-5'>{loggedUser?.user?.email}</li>
+                  <li className='mb-5'>-</li>
+                  <li className=''>-</li>
               </ul>
           </div>
       </div>
