@@ -10,7 +10,7 @@ export default function Balance({ showAmountBtn, showAmount }) {
     const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
     
     const available = wallet?.availableBalance ?? 0;
-    const invested = wallet?.lockedBalance ?? 0;
+    const invested = wallet?.investedBalance ?? 0;
     const pendingDeposits = wallet?.pendingDeposits  ?? 0;
     const pendingWithdraw = wallet?.pendingWithdrawals
     const pending = pendingDeposits + pendingWithdraw  ?? 0;
