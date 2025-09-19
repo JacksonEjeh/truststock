@@ -21,7 +21,7 @@ export default function page() {
                 <FadeInSection>
                     <div className='mb-10'>
                         <p className="text-purple-800 mb-2">Secure your future by investing in loans</p>
-                        <h1 className="text-2xl mb-5 leading-tight font-bold">Start with €50 and build a diversified portfolio</h1>
+                        <h1 className="text-2xl mb-5 leading-tight font-bold">Start with $50 and build a diversified portfolio</h1>
                         <FadeInSection>
                             <p className='font-light mb-5'>At Truststock, we offer several investment methods to make your investment experience as comfortable and simple as possible, helping you achieve your investment goals quickly and effortlessly.</p>
                         </FadeInSection>

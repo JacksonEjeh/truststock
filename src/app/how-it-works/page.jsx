@@ -58,7 +58,7 @@ export default function page() {
                 <FadeInSection>
                     <div className="p-8 bg-purple-500/20 rounded-lg mb-10">
                         <h1 className="font-bold text-lg">Invest</h1>
-                        <p className="font-light">Select from our automated investing options or hand-pick specific investments. You can get started with as little as €50.</p>
+                        <p className="font-light">Select from our automated investing options or hand-pick specific investments. You can get started with as little as $50.</p>
                     </div>
                 </FadeInSection>
                 <FadeInSection>
