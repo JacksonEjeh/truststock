@@ -18,12 +18,16 @@ export default function page() {
 
     const [investment_data, setInvestmentData] = useState({
         planId: "",
-        investmentPlan: ""
+        amount: ""
     })
     const capitalizeFirst = (word) => {
         if (!word) return "";
         return word.charAt(0).toUpperCase() + word.slice(1);
     };
+
+    const handleInvestBtn = () => {
+        console.log(investment_data)
+    }
 
     useEffect(() => {
         dispatch(getAllInvestmentPlan());
@@ -90,15 +94,19 @@ export default function page() {
                                                                     placeholder='1000.00' 
                                                                     className='outline-none bg-gray-100'
                                                                     value={investment_data.amount}
-                                                                    onChange={(e) =>
+                                                                    onChange={(e) =>{
                                                                         setInvestmentData((prev) => ({
                                                                         ...prev,
-
                                                                         amount: e.target.value
                                                                         }))
+                                                                        setInvestmentData((prev) => ({
+                                                                            ...prev,
+                                                                            planId: plan._id
+                                                                        }))
+                                                                    }
                                                                     }
                                                                 />
-                                                                <button onClick={() => handleInvestBtn(plan?.value)} className='bg-purple-800/30 border border-purple-800 font-semibold  py-2 px-4 rounded-full text-purple-800 text-xs'>Invest</button>
+                                                                <button onClick={() => handleInvestBtn()} className='bg-purple-800/30 border border-purple-800 font-semibold  py-2 px-4 rounded-full text-purple-800 text-xs'>Invest</button>
                                                             </label>
                                                         </div>
                                                     </div>
