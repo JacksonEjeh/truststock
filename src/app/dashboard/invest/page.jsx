@@ -5,17 +5,19 @@ import Footer from '@/app/components/dashboardComponents/Footer';
 import Nav from '@/app/components/dashboardComponents/Nav'
 import FadeInSection from '@/app/components/FadeInSection';
 import Spinner from '@/app/components/Spinner';
+import ToastAlert from '@/app/components/ToastAlert';
 import { getAllInvestmentPlan } from '@/app/redux/slices/investmentPlanSlice';
 import { useEffect, useState } from 'react';
 import { RiErrorWarningFill } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux';
+import Preview from './preview';
 
 export default function page() {
     const dispatch = useDispatch();
 
     const { loading, investment_plans, error } = useSelector((state)=> state?.investmentPlan);
     // console.log(investment_plans)
-
+    const [ alert, setAlert ] = useState(({ message: "", type: "info"}));
     const [investment_data, setInvestmentData] = useState({
         planId: "",
         amount: ""
@@ -25,8 +27,16 @@ export default function page() {
         return word.charAt(0).toUpperCase() + word.slice(1);
     };
 
-    const handleInvestBtn = () => {
-        console.log(investment_data)
+    const handleInvestBtn = (e) => {
+        if(!investment_data.amount || !investment_data.planId){
+            e.preventDefault();
+            setAlert({
+              message: "Please enter a valid amount",
+              type: "error",
+            });
+            return;
+        }
+        // console.log(investment_data);
     }
 
     useEffect(() => {
@@ -35,6 +45,13 @@ export default function page() {
     if( loading ) return <Spinner />
   return (
     <div className='bg-gray-100'>
+        <div>
+            <ToastAlert
+                message={alert.message}
+                type={alert.type}
+                onClose={() => setAlert({ message: "", type: "info" })}
+            />
+      </div>
         <Nav dash={true} />
         <FadeInSection>
             <div className='pt-20 pb-5'>
@@ -106,7 +123,17 @@ export default function page() {
                                                                     }
                                                                     }
                                                                 />
-                                                                <button onClick={() => handleInvestBtn()} className='bg-purple-800/30 border border-purple-800 font-semibold  py-2 px-4 rounded-full text-purple-800 text-xs'>Invest</button>
+                                                                <Preview 
+                                                                    trigger={
+                                                                        <button onClick={(e) => handleInvestBtn(e)} className={`${investment_data.amount === '' ? 'opacity-50' : 'opacity-100'} transition-all duration-500 bg-purple-800/30  border border-purple-800 font-semibold  py-2 px-4 rounded-full text-purple-800 text-xs`}>Invest</button>
+                                                                    }
+                                                                    plan={capitalizeFirst(plan?.investment_plan)}
+                                                                    type={capitalizeFirst(plan?.investment_type)}
+                                                                    duration={`${plan?.duration?.value} ${capitalizeFirst(plan?.duration?.unit)}`}
+                                                                    interest={`${plan?.interest}%`}
+                                                                    amount={investment_data?.amount}
+                                                                    setInvestmentData={setInvestmentData}
+                                                                />
                                                             </label>
                                                         </div>
                                                     </div>
