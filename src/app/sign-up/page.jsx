@@ -26,7 +26,7 @@ const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@
 export default function page() {
     const router = useRouter();
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.user)
+    const [ loading, setLoading ] = useState(false)
     const [showPassword, setShowPassword] = useState(false);
     const [alert, setAlert] = useState({ message: "", type: "info" });
     const [agreed, setAgreed] = useState(false);
@@ -101,13 +101,16 @@ export default function page() {
             setAlert({ message: "You must agree to the terms and conditions.", type: "warning" });
             return;
         }
+        setLoading(true)
         dispatch(signUpUser(signUp)).then((action)=>{
             if (action.type === "user/signUpUser/fulfilled"){
+                setLoading(false)
                 // Assuming payload contains user data like email
                 setAlert({ message: 'Success! Verify email', type: 'success'})
                 const email = action.payload?.data?.email;
                 router.push(`/verify-otp?email=${email}`);
             }
+            setLoading(false)
             if (action.payload === "User already exists"){
                 setAlert({ message: "User already exists", type: "error" });
                 return;

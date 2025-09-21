@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation';
 export default function page() {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { loading } = useSelector((state) => state.user)
+  const [ loading, setLoading ] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [ alert, setAlert ] = useState(({ message: "", type: "info"}));
 
@@ -37,14 +37,17 @@ export default function page() {
     }
   
     try {
+      setLoading(true)
       const action = await dispatch(loginUser(sign_up));
   
       if (loginUser.fulfilled.match(action)) {
+        setLoading(false)
         const accessToken = action.payload.accessToken;
         document.cookie = `accessToken=${accessToken}; path=/; secure; SameSite=None`;
         setAlert({ message: "Login successful", type: "success" });
         router.push("/dashboard");
       } else {
+        setLoading(false)
         const message = action.payload;
         switch (message) {
           case "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number":
@@ -73,6 +76,8 @@ export default function page() {
       }
     } catch (err) {
       setAlert({ message: err.message ||"Unexpected error occurred. Try again", type: "error" });
+    } finally {
+      setLoading(false)
     }
     
   };  
