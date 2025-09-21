@@ -11,6 +11,7 @@ import Returns from '../components/dashboardComponents/Returns';
 import Portfolio from '../components/dashboardComponents/Portfolio';
 import { useDispatch } from 'react-redux';
 import { getTransactionHistory, getWallet } from '../redux/slices/walletSlice';
+import SmartsuppChat from '../components/Smartsupp';
 
 export default function page() {
     const dispatch = useDispatch();
@@ -107,6 +108,7 @@ export default function page() {
             <Footer />
         </div>
         </FadeInSection>
+         <SmartsuppChat />
     </div>
   )
 }

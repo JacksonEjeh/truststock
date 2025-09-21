@@ -74,6 +74,7 @@ export default function page() {
     } catch (err) {
       setAlert({ message: err.message ||"Unexpected error occurred. Try again", type: "error" });
     }
+    
   };  
 
   return (
