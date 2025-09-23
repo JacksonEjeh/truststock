@@ -8,8 +8,8 @@ export default function Returns({ showAmountBtn, showAmount }) {
 
     const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
     const total_interest = wallet?.accruedInterest ?? 0;
-    const averageRoi = parseFloat(wallet?.avgROI?.$numberDecimal.toString() || "0");
-
+    const averageRoi = parseFloat(wallet?.avgROI ?? 0);
+    
     if(loading) return <div className='h-36 bg-white flex justify-center items-center'><div className="animate-spin rounded-full h-10 w-10 border-4 border-purple-700 border-t-transparent"></div></div>
 
   return (

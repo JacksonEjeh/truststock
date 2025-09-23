@@ -17,6 +17,7 @@ export default function page() {
 
     const { loading, investment_plans, error } = useSelector((state)=> state?.investmentPlan);
     // console.log(investment_plans)
+    const [loading2, SetLoading2] = useState(false)
     const [ alert, setAlert ] = useState(({ message: "", type: "info"}));
     const [investment_data, setInvestmentData] = useState({
         planId: "",
@@ -43,6 +44,8 @@ export default function page() {
         dispatch(getAllInvestmentPlan());
     }, [])
     if( loading ) return <Spinner />
+    if( loading2 ) return <Spinner />
+        
   return (
     <div className='bg-gray-100'>
         <div>
@@ -107,7 +110,7 @@ export default function page() {
                                                             <label className=' pl-3 items-center flex justify-between rounded-full bg-gray-100'>
                                                                 <span className="font-semibold text-sm">$ </span>
                                                                 <input 
-                                                                    type="text" 
+                                                                    type="number"  
                                                                     placeholder='1000.00' 
                                                                     className='outline-none bg-gray-100'
                                                                     value={investment_data.amount}
@@ -133,6 +136,10 @@ export default function page() {
                                                                     interest={`${plan?.interest}%`}
                                                                     amount={investment_data?.amount}
                                                                     setInvestmentData={setInvestmentData}
+                                                                    planId={plan?._id}
+                                                                    SetLoading2={SetLoading2}
+                                                                    setAlert={setAlert}
+                                                                    alert={alert}
                                                                 />
                                                             </label>
                                                         </div>

@@ -21,6 +21,7 @@ const ToastAlert = ({
   onClose,
   autoClose = true,
   duration = 5000,
+  className,
 }) => {
   useEffect(() => {
     if (autoClose && message) {
@@ -32,7 +33,7 @@ const ToastAlert = ({
   if (!message) return null;
 
   return (
-    <div className="fixed top-5 right-5 z-50 animate-fade-in">
+    <div className={`fixed top-5 right-5 z-50 animate-fade-in ${className}`}>
         <div className="flex items-start gap-3 bg-green-100 border-l-4 shadow rounded-lg p-3 max-w-xs w-full
             border-green-600 dark:border-green-500"
             style={{

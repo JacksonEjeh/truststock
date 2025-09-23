@@ -7,6 +7,7 @@ const initialState = {
     error: null
 }
 
+
 export const getAllInvestmentPlan = createAsyncThunk(
     'investment_plan/getAllInvestmentPlan',
     async(_, {rejectWithValue}) => {
@@ -18,6 +19,7 @@ export const getAllInvestmentPlan = createAsyncThunk(
         }
     }
 )
+
 const investmentPlanSlice = createSlice({
     name: 'investment_plan',
     initialState,
