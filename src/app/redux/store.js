@@ -17,7 +17,7 @@ const logger = createLogger({
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["user"] // reducers you want to persist
+    whitelist: ["user", "wallet"] // reducers you want to persist
 };
 
 //Reducers

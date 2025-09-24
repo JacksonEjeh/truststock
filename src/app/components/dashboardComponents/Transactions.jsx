@@ -90,7 +90,7 @@ export default function Transactions() {
               <div
                 key={txn._id}
                 onClick={() => openModal(txn)}
-                className="cursor-pointer border rounded-lg p-3 flex items-center justify-between mb-2 hover:bg-gray-50"
+                className="cursor-pointer border rounded-lg py-2 px-3 flex items-center justify-between mb-2 hover:bg-gray-50"
               >
                 <div>
                   <small className="font-light">{date}</small>
