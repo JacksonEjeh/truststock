@@ -51,33 +51,7 @@ export default function page() {
             method: deposit_info.method
         };
     
-        try {
-            const action = await dispatch(initiateDeposit(payload));
-    
-            if (initiateDeposit.fulfilled.match(action)) {
-                setDepositInfo({
-                    amount: '',
-                    method: ''
-                })
-                setAlert({ message: "Deposit initiated successfully!", type: "success" });
-                router.replace(`/dashboard/add-funds/payment-info?amount=${deposit_info.amount}&method=${deposit_info.method.toUpperCase()}`)
-            } else {
-                const message = action.payload;
-                switch (message) {
-                    case "All fields are required and amount must be valid":
-                        setAlert({ message, type: "error" });
-                        break;
-                    case "Minimum deposit amount is $100":
-                        setAlert({ message, type: "error" });
-                        break;
-                    default:
-                        setAlert({ message: "Deposit failed, try again", type: "error" });
-                        break;
-                }
-            }
-        } catch (error) {
-            setAlert({ message: error.message || "Unexpected error occurred. Try again", type: "error" });
-        }
+        router.replace(`/dashboard/add-funds/payment-info?amount=${payload.amount}&method=${payload.method}`)
     };
     
   return (

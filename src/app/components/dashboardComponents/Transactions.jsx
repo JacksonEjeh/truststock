@@ -99,7 +99,7 @@ export default function Transactions() {
                 </div>
                 <div>
                   <p className={`${amountColor} text-sm`}>
-                    {sign}${txn.amount.toFixed(2)}
+                   {sign}{Number(txn?.amount).toFixed(2)}
                   </p>
                 </div>
               </div>
