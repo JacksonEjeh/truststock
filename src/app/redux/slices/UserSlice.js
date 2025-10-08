@@ -61,6 +61,29 @@ export const changePassword = createAsyncThunk('user/changePassword', ( data, { 
   postWithHandling('auth/change-password', data, rejectWithValue)
 )
 
+export const getMe = createAsyncThunk(
+    'user/getMe',
+    async (_, { rejectWithValue }) => {
+        try {
+            const res = await Api.get('/user/me', { withCredentials: true});
+            return res.data
+        } catch (error) {
+            rejectWithValue(error.response?.data?.message || error.message)
+        }
+    }
+);
+export const updateMe = createAsyncThunk(
+    'user/updateMe',
+    async (data, { rejectWithValue }) => {
+        try {
+            const res = await Api.put('/user/update/me', data, { withCredentials: true});
+            return res.data
+        } catch (error) {
+            rejectWithValue(error.response?.data?.message || error.message)
+        }
+    }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -191,6 +214,34 @@ const userSlice = createSlice({
         state.error = "";
       })
       .addCase(changePassword.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(getMe.pending, (state) => {
+        state.loading = true;
+        state.error = "";
+      })
+      .addCase(getMe.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = ""
+        state.user = action.payload.user
+      })
+      .addCase(getMe.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(updateMe.pending, (state) => {
+        state.loading = true;
+        state.error = "";
+      })
+      .addCase(updateMe.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = ""
+        state.user = action.payload.user
+      })
+      .addCase(updateMe.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })

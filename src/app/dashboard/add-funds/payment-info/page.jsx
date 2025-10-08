@@ -59,7 +59,6 @@ export default function page() {
         try {
             setLoading(true)
             const action = await dispatch(initiateDeposit(formData));
-            console.log(action)
             if (initiateDeposit.fulfilled.match(action)) {
                 setLoading(false)
                 setAlert({ message: "Deposit initiated successfully!", type: "success" });
@@ -85,15 +84,15 @@ export default function page() {
             setLoading(false)
         }
     }
-    // useEffect(() => {
-    //     const fetchBTC = async () => {
-    //         if (amount) {
-    //             const btc = await convertToBTC(parseFloat(amount));
-    //             setBtcAmount(btc);
-    //         }
-    //     }
-    //     fetchBTC();
-    // }, [amount]);
+    useEffect(() => {
+        const fetchBTC = async () => {
+            if (amount) {
+                const btc = await convertToBTC(parseFloat(amount));
+                setBtcAmount(btc);
+            }
+        }
+        fetchBTC();
+    }, [amount]);
 
     const handleCopy = async (value) => {
         try {

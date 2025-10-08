@@ -24,7 +24,7 @@ export default function page() {
       return;
     }
     dispatch(forgetPassword({email: email})).then((action)=> {
-      console.log(action)
+      // console.log(action)
       if (action.payload === "User not found"){
         setAlert({ message: "User not found", type: "error" });
         return;

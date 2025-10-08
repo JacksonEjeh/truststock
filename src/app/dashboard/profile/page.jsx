@@ -6,10 +6,13 @@ import Nav from '@/app/components/dashboardComponents/Nav'
 import PersonalInfo from '@/app/components/dashboardComponents/PersonalInfo'
 import Security from '@/app/components/dashboardComponents/Security'
 import FadeInSection from '@/app/components/FadeInSection'
+import { getMe } from '@/app/redux/slices/UserSlice'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 export default function page() {
+    const dispatch = useDispatch();
     const [profile, setProfile] = useState('profile');
     const handleSection = (e) => {
         const key = e.target.value;
@@ -29,6 +32,9 @@ export default function page() {
                 break;
         }
     };
+    useEffect(()=> {
+        dispatch(getMe())
+    }, [])
     return (
         <div className='bg-gray-100 '>
             <Nav dash={true} />

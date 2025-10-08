@@ -52,7 +52,6 @@ export default function page() {
         };
         try {
             const action = await dispatch(initiateWithdrawal(payload));
-            console.log(action)
             if(initiateWithdrawal.fulfilled.match(action)) {
                 setWithdrawalInfo({
                     amount: '',
@@ -69,9 +68,8 @@ export default function page() {
                 setShowComponent(true);
             } else {
                 const message = action.payload;
-                console.log(message)
                 switch (message) {
-                    case "Insufficient balance":
+                    case message:
                         setAlert({ message, type: 'error'})
                         break;
                     default:

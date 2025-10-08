@@ -23,7 +23,7 @@ export const initiateDeposit = createAsyncThunk('wallet/initiateDeposit', (data,
     postWithHandling('wallet/deposit', data, rejectWithValue )
 );
 export const initiateWithdrawal = createAsyncThunk('wallet/initiateWithdrawal', (data, { rejectWithValue })=>
-    postWithHandling('wallet/withdraw', data, rejectWithValue )
+    postWithHandling('transaction/withdraw', data, rejectWithValue )
 );
 
 export const getWallet = createAsyncThunk(

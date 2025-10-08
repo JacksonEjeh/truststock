@@ -50,7 +50,7 @@ export default function page() {
             return;
         }
         dispatch(resetPassword(otp_info)).then((action)=>{
-            console.log(action);
+            // console.log(action);
             if(action.payload.message === "Password reset successfully"){
                 setAlert({ message: "Password reset successfully", type: "success"});
                 router.push('/sign-in');
