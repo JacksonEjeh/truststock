@@ -62,7 +62,7 @@ export default function Nav({ dash, admin }) {
             {
                 admin ? (
                     <div className='flex items-center gap-5'>
-                        <div className='fixed bottom-5 right-5 left-5'>
+                        <div className='fixed bottom-2 right-5 left-5'>
                             <div className='bg-black/40 py-2 px-4 w-full rounded-full flex items-center justify-between'>
                                 <div>
                                     <TbHomeFilled className='text-purple-800 text-2xl'/>
