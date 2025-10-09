@@ -17,7 +17,7 @@ export default function AvailableFunds() {
         setShowAmount(prev => !prev);
     };
     
-    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
+    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '$0.00'
     const available = wallet?.availableBalance ?? 0;
 
     useEffect(()=> {

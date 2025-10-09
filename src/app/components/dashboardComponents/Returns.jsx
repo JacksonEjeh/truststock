@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 export default function Returns({ showAmountBtn, showAmount }) {
     const { loading, wallet, error } = useSelector((state)=> state?.wallet);
 
-    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
+    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '$0.00'
     const total_interest = wallet?.accruedInterest ?? 0;
     const averageRoi = parseFloat(wallet?.avgROI ?? 0);
     

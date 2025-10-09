@@ -25,7 +25,7 @@ export default function Nav({ dash }) {
     const loggedUser = useSelector((state)=> state.user);
     const wallet = useSelector((state)=> state.wallet);
 
-    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
+    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '$0.00'
     const available = wallet?.wallet?.availableBalance ?? 0;
     
     const [ alert, setAlert ] = useState(({ message: "", type: "info"}));

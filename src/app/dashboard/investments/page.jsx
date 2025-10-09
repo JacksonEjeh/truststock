@@ -17,7 +17,7 @@ export default function page() {
     const [alert, setAlert] = useState({ message: "", type: "info"});
     const [investment_status, setInvestmentStatus] = useState('');
 
-    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
+    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '$0.00'
     const capitalizeFirst = (word) => {
         if (!word) return "";
         return word.charAt(0).toUpperCase() + word.slice(1);

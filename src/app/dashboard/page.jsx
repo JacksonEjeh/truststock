@@ -25,7 +25,7 @@ export default function page() {
     const dispatch = useDispatch();
     const router = useRouter();
     const { loading, user_investment} = useSelector((state) => state.investmentPlan)
-    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '$0.00'
+    const formatCurrency = (value) => typeof value === 'number' ? `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '$0.00'
     const capitalizeFirst = (word) => {
         if (!word) return "";
         return word.charAt(0).toUpperCase() + word.slice(1);
