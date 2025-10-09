@@ -134,7 +134,7 @@ export default function PersonalInfo() {
             </div>
             <div className=' w-[60%]'>
                 <input type="text" 
-                    className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
+                    className={`bg-transparent w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
                         isDisabled
                         ? "text-gray-400 border-transparent cursor-not-allowed"
                         : "text-white border-white/50 focus:border-white/70"
@@ -146,7 +146,7 @@ export default function PersonalInfo() {
                     onChange={handleInput}    
                 />
                 <input type="text"
-                    className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
+                    className={`bg-transparent w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
                         isDisabled
                         ? "text-gray-400 border-transparent cursor-not-allowed"
                         : "text-white border-white/50 focus:border-white/70"
@@ -158,7 +158,7 @@ export default function PersonalInfo() {
                     onChange={handleInput}    
                 />
                 <input type="text" 
-                    className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
+                    className={`bg-transparent w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
                         isDisabled
                         ? "text-gray-400 border-transparent cursor-not-allowed"
                         : "text-white border-white/50 focus:border-white/70"
@@ -170,7 +170,7 @@ export default function PersonalInfo() {
                     onChange={handleInput}    
                 />
                 <input type="text"
-                    className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
+                    className={`bg-transparent w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
                         isDisabled
                         ? "text-gray-400 border-transparent cursor-not-allowed"
                         : "text-white border-white/50 focus:border-white/70"
@@ -182,7 +182,7 @@ export default function PersonalInfo() {
                     // onChange={handleInput}    
                 />
                 <input type="text" 
-                    className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
+                    className={`bg-transparent w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
                         isDisabled
                         ? "text-gray-400 border-transparent cursor-not-allowed"
                         : "text-white border-white/50 focus:border-white/70"
@@ -194,7 +194,7 @@ export default function PersonalInfo() {
                     onChange={handleInput}    
                 />
                 <input type="text" 
-                    className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
+                    className={`bg-transparent w-full outline-none focus:shadow px-1 border mb-5 transition-all duration-300 ${
                         isDisabled
                         ? "text-gray-400 border-transparent cursor-not-allowed"
                         : "text-white border-white/50 focus:border-white/70"
@@ -216,7 +216,7 @@ export default function PersonalInfo() {
                 <p className='col-span-2'>Country of residence:</p>
                 <div className='col-span-3'>
                     <input type="text" 
-                        className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
+                        className={`bg-transparent w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
                             isDisabled
                             ? "text-gray-400 border-transparent cursor-not-allowed"
                             : "text-white border-white/50 focus:border-white/70"
@@ -233,7 +233,7 @@ export default function PersonalInfo() {
                 <p className='col-span-2'>City:</p>
                 <div className='col-span-3'>
                     <input type="text" 
-                        className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
+                        className={`bg-transparent w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
                             isDisabled
                             ? "text-gray-400 border-transparent cursor-not-allowed"
                             : "text-white border-white/50 focus:border-white/70"
@@ -250,7 +250,7 @@ export default function PersonalInfo() {
                 <p className='col-span-2'>Street, house Number:</p>
                 <div className='col-span-3'>
                     <input type="text" 
-                        className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
+                        className={`bg-transparent w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
                             isDisabled
                             ? "text-gray-400 border-transparent cursor-not-allowed"
                             : "text-white border-white/50 focus:border-white/70"
@@ -267,7 +267,7 @@ export default function PersonalInfo() {
                 <p className='col-span-2'>Postal code:</p>
                 <div className='col-span-3'>
                     <input type="text" 
-                        className={`bg-transparent text-sm w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
+                        className={`bg-transparent w-full outline-none focus:shadow px-1 border transition-all duration-300 ${
                             isDisabled
                             ? "text-gray-400 border-transparent cursor-not-allowed"
                             : "text-white border-white/50 focus:border-white/70"
