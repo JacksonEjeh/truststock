@@ -45,6 +45,10 @@ export default function page() {
         const accessToken = action.payload.accessToken;
         document.cookie = `accessToken=${accessToken}; path=/; secure; SameSite=None`;
         setAlert({ message: "Login successful", type: "success" });
+        if(action?.payload?.user?.role === 'admin') {
+          router.push("/admin-dashboard");
+          return;
+        }
         router.push("/dashboard");
       } else {
         setLoading(false)

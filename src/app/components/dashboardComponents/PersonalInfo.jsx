@@ -83,13 +83,13 @@ export default function PersonalInfo() {
             ...prev,
             first_name: capitalizeFirst(loggedUser?.user?.first_name) || '',
             last_name: capitalizeFirst(loggedUser?.user?.last_name) || '',
-            phone_number: loggedUser?.user.phone_number || '',
-            gender: capitalizeFirst(loggedUser?.user.gender) || '',
-            date_of_birth: formatDate(loggedUser?.user.date_of_birth) || '',
-            country_of_residence: capitalizeFirst(loggedUser?.user.country_of_residence) || '',
-            city: capitalizeFirst(loggedUser?.user.city) || '',
-            street: capitalizeFirst(loggedUser?.user.street) || '',
-            postal_code: capitalizeFirst(loggedUser?.user.postal_code) || '',
+            phone_number: loggedUser?.user?.phone_number || '',
+            gender: capitalizeFirst(loggedUser?.user?.gender) || '',
+            date_of_birth: formatDate(loggedUser?.user?.date_of_birth) || '',
+            country_of_residence: capitalizeFirst(loggedUser?.user?.country_of_residence) || '',
+            city: capitalizeFirst(loggedUser?.user?.city) || '',
+            street: capitalizeFirst(loggedUser?.user?.street) || '',
+            postal_code: capitalizeFirst(loggedUser?.user?.postal_code) || '',
         }))    
     }, [])
   return (
