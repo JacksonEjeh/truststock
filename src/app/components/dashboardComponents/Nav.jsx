@@ -64,12 +64,16 @@ export default function Nav({ dash, admin }) {
                     <div className='flex items-center gap-5'>
                         <div className='fixed bottom-2 right-3 left-3'>
                             <div style={{boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",}} className='bg-white/90  py-2 px-4 w-full rounded-xl flex items-center justify-between'>
-                                <div className='size-8 rounded-full border-2 border-purple-800 flex items-center justify-center'>
-                                    <TbHomeFilled className='text-purple-800 text-2xl'/>
-                                </div>
-                                <div className='size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
-                                    <FaUsers className='text-black text-2xl'/>
-                                </div>
+                                <Link href={'/admin-dashboard'}>
+                                    <div className='size-8 rounded-full border-2 border-purple-800 flex items-center justify-center'>
+                                        <TbHomeFilled className='text-purple-800 text-2xl'/>
+                                    </div>
+                                </Link>
+                                <Link href={'/admin-dashboard/users'}>
+                                    <div className='size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
+                                        <FaUsers className='text-black text-2xl'/>
+                                    </div>
+                                </Link>
                                 <div className='px-5 py-1 rounded-lg bg-black flex items-center justify-center'>
                                     <MdOutlineAddCircle className='text-lg text-white' />
                                 </div>
