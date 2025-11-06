@@ -5,8 +5,8 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function page() {
-  return (
-    <div className='bg-gray-100'>
+  return ( 
+    <div className='bg-gray-100 h-screen overflow-y-auto'>
         <Nav dash={true} />
         <FadeInSection>
             <div className='pt-20'>
@@ -16,7 +16,7 @@ export default function page() {
                         <p className='font-semibold text-lg'>Portfolio</p>
                     </div>
                 </div>
-                <div className='w-[80%] mx-auto text-sm text-center h-screen'>
+                <div className='w-[80%] mx-auto text-sm text-center'>
                     <div className='flex items-center justify-center'>
                         <img src="/images/box.png" alt="No data" className='h-14' />
                     </div>
@@ -24,7 +24,9 @@ export default function page() {
                 </div>
             </div>
         </FadeInSection>
-        <Footer />
+        <div className='fixed bottom-0 left-0 right-0 '>
+            <Footer />
+        </div>
     </div>
   )
 }

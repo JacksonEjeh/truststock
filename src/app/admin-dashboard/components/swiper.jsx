@@ -67,7 +67,7 @@ export default function AdminCardSwiper() {
         className="flex gap-4 overflow-x-auto w-full pb-4 scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
         // style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
       >
-            <div className='border border-yellow-500 bg-yellow-500/10 py-4 px-6 rounded-lg text-center'>
+            <div className='border border-purple-800 bg-purple-800/10 py-4 px-6 rounded-lg text-center'>
                 <div className="flex items-center gap-2 text-center justify-center">
                     <div className="flex items-center gap-2">
                         <FaMoneyBills className="text-sm" />

@@ -19,7 +19,7 @@ import Spinner from '../components/Spinner';
 import ToastAlert from '../components/ToastAlert';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
 
 
 
@@ -161,7 +161,7 @@ export default function page() {
                     <div>
                         <h1 className='text-xl mb-5 font-bold text-center'>Sign up as an individual</h1>
                         <form className='' onSubmit={handleSignUp}>
-                            <label className="input relative input-bordered flex items-center gap-2 mb-1 w-full">
+                            <label className="input relative input-bordered border-solid border flex items-center gap-2 mb-1 w-full">
                                 First name:
                                 <input 
                                     type="text" 
@@ -189,7 +189,7 @@ export default function page() {
                                     3 to 24 Characters
                                 </p>
                             </div>
-                            <label className="input input-bordered flex items-center gap-2 mb-1 w-full">
+                            <label className="input input-bordered border-solid border flex items-center gap-2 mb-1 w-full">
                                 Last name:
                                 <input 
                                     type="text"    
@@ -217,7 +217,7 @@ export default function page() {
                                     3 to 24 Characters
                                 </p>
                             </div>
-                            <label className="input input-bordered flex items-center gap-2 mb-1 w-full">
+                            <label className="input input-bordered border-solid border flex items-center gap-2 mb-1 w-full">
                                 Your email:
                                 <input 
                                     type="email" 
@@ -246,7 +246,7 @@ export default function page() {
                                 </p>
                             </div>
                             <FadeInSection>
-                                <label className="input input-bordered flex items-center gap-2 mb-5 w-full">
+                                <label className="input input-bordered border-solid border flex items-center gap-2 mb-5 w-full">
                                     Password:
                                     <input 
                                         type={showPassword ? "text" : "password"}
@@ -293,7 +293,7 @@ export default function page() {
                                 </div>
                             </FadeInSection>
                             <FadeInSection>
-                                <label className="input input-bordered flex items-center gap-2 mb-1 w-full">
+                                <label className="input input-bordered border-solid border flex items-center gap-2 mb-1 w-full">
                                     Confirm password:
                                     <input 
                                         type={showPassword ? "text" : "password"}
@@ -322,7 +322,7 @@ export default function page() {
                                 </div>
                                 <div>
                                     <div className='flex gap-3 mb-5'>
-                                        <input type="checkbox" className="checkbox size-5" />
+                                        <input type="checkbox" className="checkbox size-5 border-solid border" />
                                         <p className="text-xs leading-tight">Agree to receive marketing communications to provided e-mail in line with the <span className='text-blue-500'>Privacy policy.</span></p>
                                     </div>
                                     <div className='flex gap-3'>
@@ -330,7 +330,7 @@ export default function page() {
                                             type="checkbox" 
                                             checked={agreed}
                                             onChange={(e) => setAgreed(e.target.checked)}
-                                            className="checkbox size-5" 
+                                            className="checkbox size-5 border-solid border" 
                                         />
                                         <p className="text-xs leading-tight">By proceeding with registration I agree to the <span className='text-blue-500'>Terms & conditions</span>, <span className='text-blue-500'>Orders Execution Policy</span> and <span className='text-blue-500'>Privacy policy</span>. I also agree that Truststock provided me with all information related to investment services, including certain documents available online and personally addressed information via email.</p>
                                     </div>

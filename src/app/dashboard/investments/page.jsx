@@ -54,7 +54,7 @@ export default function page() {
         <Nav dash={true} />
         <FadeInSection>
             
-            <div className='pt-24 pb-10 px-5 bg-gray-100'>
+            <div className='pt-24 pb-10 px-5 bg-gray-100 h-screen overflow-y-auto'>
                 <div className='flex items-center justify-between mb-5'>
                     <div className=''>
                         <p className='text-gray-500 text-xs font-light'>Dashboard /</p>
@@ -104,6 +104,10 @@ export default function page() {
                                             <div className='flex items-center gap-1 relative z-10'>
                                                 <p className='text-xs text-black/40'>Plan:</p>
                                                 <p className='text-xs'>{capitalizeFirst(inv?.plan?.investment_plan)}</p>
+                                            </div>
+                                            <div className='flex items-center gap-1 relative z-10'>
+                                                <p className='text-xs text-black/40'>Duration:</p>
+                                                <p className='text-xs'>{inv?.plan?.duration.value} {inv?.plan?.duration.unit}</p>
                                             </div>
                                         </div>
                                     </div>

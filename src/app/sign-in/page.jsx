@@ -107,7 +107,7 @@ export default function page() {
         <form onSubmit={handleSubmit}>
           <h1 className='text-2xl mb-5 font-bold text-center'>Welcome back</h1>
           <div className='w-screen px-4'>
-            <label className="input input-bordered flex items-center gap-2 mb-5 w-full">
+            <label className="input input-bordered border-solid border flex items-center gap-2 mb-5 w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -127,7 +127,7 @@ export default function page() {
                 onChange={handleInput}
               />
             </label>
-            <label className="input input-bordered flex items-center gap-2 w-full">
+            <label className="input input-bordered border-solid border flex items-center gap-2 w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"

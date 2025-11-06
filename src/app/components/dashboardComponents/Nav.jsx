@@ -64,16 +64,17 @@ export default function Nav({ dash, admin }) {
                     <div className='flex items-center gap-5'>
                         <div className='fixed bottom-2 right-3 left-3'>
                             <div style={{boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",}} className='bg-white/90  py-2 px-4 w-full rounded-xl flex items-center justify-between'>
-                                <Link href={'/admin-dashboard'}>
-                                    <div className='size-8 rounded-full border-2 border-purple-800 flex items-center justify-center'>
-                                        <TbHomeFilled className='text-purple-800 text-2xl'/>
-                                    </div>
-                                </Link>
-                                <Link href={'/admin-dashboard/users'}>
-                                    <div className='size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
-                                        <FaUsers className='text-black text-2xl'/>
-                                    </div>
-                                </Link>
+                                <div className='size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
+                                    <Link href={'/admin-dashboard'}>
+                                        <TbHomeFilled className='text-2xl'/>
+                                    </Link>
+                                </div>
+                                <div className='relative size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
+                                    <Link href={'/admin-dashboard/users'}>
+                                            <FaUsers className='text-black text-2xl'/>
+                                    </Link>
+                                    <span className='size-4 rounded-full bg-[#FEF9C3] border border-[#854D0E] text-[#854D0E] flex items-center justify-center text-[10px] absolute -top-1 -right-1'>5</span>
+                                </div>
                                 <div className='px-5 py-1 rounded-lg bg-black flex items-center justify-center'>
                                     <MdOutlineAddCircle className='text-lg text-white' />
                                 </div>
@@ -136,7 +137,7 @@ export default function Nav({ dash, admin }) {
                                         <Link href={'/dashboard/invest'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                             <div className='flex items-center md:gap-4 gap-3'>
                                                 <FaMoneyBill className='md:text-lg' />
-                                                <p className='text-sm'>Manual investment</p>
+                                                <p className='text-sm'>Invest</p>
                                             </div>
                                         </Link>
                                         <Link href={'/dashboard/portfolio'} className=' z-10 pl-3 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
@@ -151,10 +152,10 @@ export default function Nav({ dash, admin }) {
                                                 <p className='text-sm'>Help</p>
                                             </div>
                                         </Link>
-                                        <Link href={'/dashboard/auto-invest'} className=' z-10 pl-3 mb-5 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
+                                        <Link href={'/dashboard/investments'} className=' z-10 pl-3 mb-5 py-2 flex justify-between items-center hover:bg-gray-100 cursor-pointer'>
                                             <div className='flex items-center md:gap-4 gap-3'>
                                                 <FaMoneyBill className='md:text-lg' />
-                                                <p className='text-sm'>Auto investment</p>
+                                                <p className='text-sm'>My investments</p>
                                             </div>
                                         </Link>
                                         <small className='px-3 mb-2 text-gray-400'>Account</small>

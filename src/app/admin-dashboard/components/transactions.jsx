@@ -1,14 +1,14 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import FadeInSection from '../FadeInSection';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTransactionHistory } from '@/app/redux/slices/walletSlice';
-import PaymentReceipt from './PaymentReceipt';
 import { TbArrowDownToArc } from "react-icons/tb";
 import { TbArrowDownFromArc } from "react-icons/tb";
+import PaymentReceipt from '@/app/components/dashboardComponents/PaymentReceipt';
+import FadeInSection from '@/app/components/FadeInSection';
 
 
-export default function Transactions() {
+export default function AdminTransactions() {
   const { transaction_loader, transactions } = useSelector((state) => state.wallet);
   const dispatch = useDispatch();
   const [showComponent, setShowComponent] = useState(true);
@@ -32,13 +32,13 @@ export default function Transactions() {
     setPaymentReceipt({
       amount: txn?.amount.toFixed(2),
       date: new Date(txn?.createdAt).toLocaleString('en-US', {
-        month: 'short',
-        day: '2-digit',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-      }),
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        }),
       method: txn?.method.toUpperCase(),
       reference: txn?.reference,
       status: txn?.status.toUpperCase(),
@@ -91,7 +91,7 @@ export default function Transactions() {
                 ? 'Pending'
                 : txn.status === 'rejected'
                 ? 'Rejected'
-                : 'Successful';
+                : 'Approved';
 
             const statusColor =
               txn.status === 'pending'
@@ -104,24 +104,27 @@ export default function Transactions() {
               <div
                 key={txn._id}
                 onClick={() => openModal(txn)}
-                className="cursor-pointer border rounded-lg py-2 px-3 flex bg-white items-center justify-between mb-2 hover:bg-gray-50"
+                className="cursor-pointer border rounded-lg py-2 items-center px-2 flex bg-white justify-between mb-2 hover:bg-gray-50"
               >
                 <div className='flex items-center gap-3'>
-                  <div className='size-10 rounded-full bg-[#f2f2f2] flex items-center justify-center'>
-                    {
-                      txn.type === 'deposit' ? <TbArrowDownToArc className={statusColor} /> : <TbArrowDownFromArc className={statusColor} /> 
-                    }
-                  </div>
-                  <div>
-                    <p className="text-sm">Account {txn.type }</p>
-                    <small className={statusColor}>{statusLabel}</small>
-                  </div>
+                    <div>
+                        <div className='size-10 rounded-full bg-[#f2f2f2] flex items-center justify-center'>
+                            {
+                            txn.type === 'deposit' ? <TbArrowDownToArc className={statusColor} /> : <TbArrowDownFromArc className={statusColor} /> 
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <p className='text-sm'>Michael Johnson</p>
+                        <p className="text-xs font-light">Account {txn.type}</p>
+                        <p className={`${statusColor} text-xs font-light`}>{statusLabel}</p>
+                    </div>
                 </div>
-                <div className='text-left'>
-                  <p className={`${amountColor} text-sm`}>
-                   {sign}{Number(txn?.amount).toFixed(2)}
-                  </p>
-                  <p className="font-light text-xs">{date}</p>
+                <div className='text-left '>
+                    <p className={`${amountColor} text-sm font-light`}>
+                        {sign} ${Number(txn?.amount).toFixed(2)}
+                    </p>
+                    <p className="font-light text-xs">{date}</p>
                 </div>
               </div>
             );

@@ -47,7 +47,7 @@ export default function page() {
     if( loading2 ) return <Spinner />
         
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100 h-screen overflow-y-auto'>
         <div>
             <ToastAlert
                 message={alert.message}
