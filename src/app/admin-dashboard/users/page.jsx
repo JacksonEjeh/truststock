@@ -89,7 +89,7 @@ export default function page() {
                                                             <DropdownMenuSeparator />
                                                             <DropdownMenuGroup>
                                                                 <DropdownMenuItem>
-                                                                    <p className='text-xs'>View&nbsp;{user?.first_name}</p>
+                                                                    <Link href={`/admin-dashboard/users/${i}`} className='text-xs'>View&nbsp;{user?.first_name}</Link>
                                                                     <DropdownMenuShortcut>⌘V</DropdownMenuShortcut>
                                                                 </DropdownMenuItem>
                                                                 <DropdownMenuItem>
@@ -115,9 +115,6 @@ export default function page() {
                     </div>
                 )
             }
-            <div>
-                <Footer />
-            </div>
         </div>
     </div>
   )

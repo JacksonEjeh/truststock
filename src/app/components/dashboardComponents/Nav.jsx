@@ -71,7 +71,7 @@ export default function Nav({ dash, admin }) {
                                 </div>
                                 <div className='relative size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
                                     <Link href={'/admin-dashboard/users'}>
-                                            <FaUsers className='text-black text-2xl'/>
+                                        <FaUsers className='text-black text-2xl'/>
                                     </Link>
                                     <span className='size-4 rounded-full bg-[#FEF9C3] border border-[#854D0E] text-[#854D0E] flex items-center justify-center text-[10px] absolute -top-1 -right-1'>5</span>
                                 </div>
@@ -79,7 +79,9 @@ export default function Nav({ dash, admin }) {
                                     <MdOutlineAddCircle className='text-lg text-white' />
                                 </div>
                                 <div className='size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
-                                    <HiMiniClipboardDocumentList className='text-black text-2xl'/>
+                                    <Link href={'/admin-dashboard/investments'}>
+                                        <HiMiniClipboardDocumentList className='text-black text-2xl'/>
+                                    </Link>
                                 </div>
                                 <div className='size-8 rounded-full border-2 border-transparent flex items-center justify-center'>
                                     <RiSettings4Fill className='text-black text-2xl'/>

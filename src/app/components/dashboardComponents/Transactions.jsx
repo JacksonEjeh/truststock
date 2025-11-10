@@ -52,7 +52,7 @@ export default function Transactions() {
   if(transaction_loader) return <div className='h-20 flex justify-center items-center'><div className="animate-spin rounded-full h-10 w-10 border-4 border-purple-800 border-t-transparent"></div></div>
 
   return (
-    <div>
+    <div className=''>
       <div>
         {
           showComponent && 
